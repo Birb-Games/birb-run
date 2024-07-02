@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct2d8b0xfiepn"]
+
+[ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://scenes/Character.tscn" id="1_kneti"]
+[ext_resource type="PackedScene" uid="uid://cson36stqgelf" path="res://scenes/Floor.tscn" id="2_lexrk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_kneti")]
+position = Vector2(546, 238)
+jump_velocity = -700.0
+
+[node name="Floor" parent="." instance=ExtResource("2_lexrk")]
