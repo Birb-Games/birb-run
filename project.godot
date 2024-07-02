@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="platformer-demo"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://scenes/Root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [input]
 
