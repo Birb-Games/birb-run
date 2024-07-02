@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://ct2d8b0xfiepn"]
+[gd_scene load_steps=5 format=3 uid="uid://ct2d8b0xfiepn"]
+
+[ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://Character.tscn" id="1_lpf08"]
+[ext_resource type="Texture2D" uid="uid://cvtqe2x713brd" path="res://icon.svg" id="1_q5wt7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t8pe0"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fslhk"]
+size = Vector2(128, 128)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_lpf08")]
+jump_velocity = -1000.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(575, 650)
+scale = Vector2(9, 1)
+physics_material_override = SubResource("PhysicsMaterial_t8pe0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_q5wt7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fslhk")
