@@ -1,17 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://cclinrvnuno6c"]
+[gd_scene load_steps=10 format=3 uid="uid://cclinrvnuno6c"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_yfkd8"]
-[ext_resource type="Texture2D" uid="uid://cvtqe2x713brd" path="res://assets/icon.svg" id="2_4wikk"]
+[ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="2_ww34p"]
+[ext_resource type="Script" path="res://scripts/PlayerAnimationController.gd" id="3_g4rha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsq7k"]
-size = Vector2(128, 128)
+size = Vector2(110, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mvds"]
+atlas = ExtResource("2_ww34p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chbnq"]
+atlas = ExtResource("2_ww34p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgpq0"]
+atlas = ExtResource("2_ww34p")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q55c"]
+atlas = ExtResource("2_ww34p")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tp8kh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mvds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chbnq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgpq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q55c")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_yfkd8")
+speed = 200.0
 jump_velocity = -500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4wikk")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.99999, 7)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qsq7k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_tp8kh")
+animation = &"walking"
+autoplay = "idle"
+script = ExtResource("3_g4rha")

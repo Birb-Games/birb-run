@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://scenes/Character.tscn" id="1_kneti"]
-[ext_resource type="PackedScene" uid="uid://cson36stqgelf" path="res://scenes/Floor.tscn" id="2_lexrk"]
+[ext_resource type="PackedScene" uid="uid://b08ayc4ahxsal" path="res://scenes/Levels/TestLevel.tscn" id="2_cojf1"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Root" type="Node2D"]
 
-[node name="Character" parent="." instance=ExtResource("1_kneti")]
-position = Vector2(546, 238)
-jump_velocity = -700.0
+[node name="Level" parent="." instance=ExtResource("2_cojf1")]
 
-[node name="Floor" parent="." instance=ExtResource("2_lexrk")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_kneti")]
+position = Vector2(59, 386)
