@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct2d8b0xfiepn"]
+[gd_scene load_steps=7 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_77vjf"]
 [ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://scenes/Character.tscn" id="1_kneti"]
 [ext_resource type="PackedScene" uid="uid://b08ayc4ahxsal" path="res://scenes/Levels/TestLevel.tscn" id="2_cojf1"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_nejv0"]
+[ext_resource type="PackedScene" uid="uid://dc8es0k4ttlx5" path="res://scenes/DeathBoundary.tscn" id="5_w5tu4"]
+[ext_resource type="PackedScene" uid="uid://ps3upauivid1" path="res://scenes/LevelEdge.tscn" id="6_cgy5j"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_77vjf")
@@ -15,3 +17,8 @@ position = Vector2(59, 386)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_nejv0")
+
+[node name="DeathBoundary" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_w5tu4")]
+player = NodePath("../Player")
+
+[node name="LeftLevelEdge" parent="." instance=ExtResource("6_cgy5j")]
