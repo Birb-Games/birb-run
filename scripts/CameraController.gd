@@ -44,8 +44,8 @@ func follow(position: Vector2):
 	# similar code for the y direction
 	if abs(self.position.y - position.y) > max_dy:
 		velocity.y = (position.y - self.position.y) * FOLLOW_SPEED
-		self.position.x = clamp(self.position.x, position.x - max_dx, position.x + max_dx)
-	elif abs(self.position.x - position.x) < CENTERED_THRESHOLD * height:
+		self.position.y = clamp(self.position.y, position.y - max_dx, position.y + max_dx)
+	elif abs(self.position.y - position.y) < CENTERED_THRESHOLD * height:
 		velocity.y = 0.0
 
 # Centers onto a position
