@@ -5,7 +5,7 @@ extends AnimatedSprite2D
 func _ready():
 	self.animation = "idle"
 
-func _process(delta):
+func _process(_delta):
 	# Flip the sprite based off the direction it is moving in
 	# if we press left, we turn to the left, if we press right, we turn to
 	# the right

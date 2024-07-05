@@ -23,5 +23,5 @@ func update_camera():
 	$Camera2D.follow($Player.position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	update_camera()
