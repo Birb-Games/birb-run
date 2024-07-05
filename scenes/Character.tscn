@@ -48,7 +48,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_yfkd8")
 speed = 200.0
