@@ -1,17 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct2d8b0xfiepn"]
+[gd_scene load_steps=9 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_77vjf"]
 [ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://scenes/Character.tscn" id="1_kneti"]
 [ext_resource type="PackedScene" uid="uid://b08ayc4ahxsal" path="res://scenes/Levels/TestLevel.tscn" id="2_cojf1"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_nejv0"]
+[ext_resource type="PackedScene" uid="uid://dc8es0k4ttlx5" path="res://scenes/DeathBoundary.tscn" id="5_w5tu4"]
+[ext_resource type="PackedScene" uid="uid://ps3upauivid1" path="res://scenes/LevelEdge.tscn" id="6_cgy5j"]
+[ext_resource type="Texture2D" uid="uid://unqktk43tabt" path="res://assets/sprites/death_particle.png" id="6_l3j8q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_syvnx"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 300.0
+initial_velocity_max = 450.0
+gravity = Vector3(0, 98, 0)
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_77vjf")
 
 [node name="Level" parent="." instance=ExtResource("2_cojf1")]
 
-[node name="Player" parent="." instance=ExtResource("1_kneti")]
-position = Vector2(59, 386)
+[node name="Player" parent="." node_paths=PackedStringArray("home_point") instance=ExtResource("1_kneti")]
+position = Vector2(23, 426)
+home_point = NodePath("../Home")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_nejv0")
+
+[node name="DeathBoundary" parent="." node_paths=PackedStringArray("player", "home", "death_particles") instance=ExtResource("5_w5tu4")]
+player = NodePath("../Player")
+home = NodePath("../Home")
+death_particles = NodePath("GPUParticles2D")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="DeathBoundary"]
+emitting = false
+amount = 35
+process_material = SubResource("ParticleProcessMaterial_syvnx")
+texture = ExtResource("6_l3j8q")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.75
+
+[node name="LeftLevelEdge" parent="." instance=ExtResource("6_cgy5j")]
+
+[node name="Home" type="Marker2D" parent="."]
+position = Vector2(59, 386)
+gizmo_extents = 14.0
