@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc8es0k4ttlx5"]
+
+[ext_resource type="Script" path="res://scripts/DeathBoundary.gd" id="1_nvy3n"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bvt76"]
+distance = -544.0
+
+[node name="DeathBoundary" type="Area2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_nvy3n")
+player = NodePath("")
+start = Vector2(59, 386)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_bvt76")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
