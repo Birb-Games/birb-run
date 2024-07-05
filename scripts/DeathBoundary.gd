@@ -1,11 +1,14 @@
 extends Area2D
 
-@export var player: CharacterBody2D
 @export var death_particles: GPUParticles2D
 
 var home: Marker2D # Where the player starts in the level, must be updated on level change
+var player: CharacterBody2D
 
 signal player_died # currently unused
+
+func _ready():
+	player = $/root/Root/Player
 
 func _on_body_entered(body):
 	if body.name == player.name:

@@ -40,6 +40,7 @@ func _load_level():
 		#Set the level bounds
 		$LeftLevelEdge.position.x = bounding_rect.position.x * tile_size_x
 		$RightLevelEdge.position.x = bounding_rect.end.x * tile_size_x
+		$DeathBoundary/CollisionShape2D.shape.distance = -bounding_rect.end.y * tile_size_y
 		
 		load_level.emit()
 	else:

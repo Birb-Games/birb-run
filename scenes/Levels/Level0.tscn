@@ -17,6 +17,3 @@ position = Vector2(2600, 195)
 [node name="Home" type="Marker2D" parent="."]
 position = Vector2(59, 386)
 gizmo_extents = 14.0
-
-[node name="WinGate2" parent="." instance=ExtResource("2_10rja")]
-position = Vector2(200, 400)
