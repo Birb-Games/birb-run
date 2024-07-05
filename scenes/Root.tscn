@@ -12,13 +12,19 @@ script = ExtResource("1_77vjf")
 
 [node name="Level" parent="." instance=ExtResource("2_cojf1")]
 
-[node name="Player" parent="." instance=ExtResource("1_kneti")]
-position = Vector2(59, 386)
+[node name="Player" parent="." node_paths=PackedStringArray("home_point") instance=ExtResource("1_kneti")]
+position = Vector2(23, 426)
+home_point = NodePath("../Home")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_nejv0")
 
-[node name="DeathBoundary" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_w5tu4")]
+[node name="DeathBoundary" parent="." node_paths=PackedStringArray("player", "home") instance=ExtResource("5_w5tu4")]
 player = NodePath("../Player")
+home = NodePath("../Home")
 
 [node name="LeftLevelEdge" parent="." instance=ExtResource("6_cgy5j")]
+
+[node name="Home" type="Marker2D" parent="."]
+position = Vector2(59, 386)
+gizmo_extents = 14.0
