@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b08ayc4ahxsal"]
 
 [ext_resource type="TileSet" uid="uid://sps0nu118bqw" path="res://assets/tilemaps/tilemap.tres" id="1_q82qb"]
-[ext_resource type="PackedScene" uid="uid://ps3upauivid1" path="res://scenes/LevelEdge.tscn" id="2_lsi8t"]
+[ext_resource type="PackedScene" path="res://scenes/LevelEdge.tscn" id="2_lsi8t"]
 
 [node name="Node2D" type="Node2D"]
 
