@@ -34,5 +34,6 @@ texture = ExtResource("2_oiomv")
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.75
+local_coords = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

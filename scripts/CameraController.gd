@@ -23,7 +23,7 @@ func follow(follow_position: Vector2):
 	# fraction of the screen distance that the camera is from the following position at
 	# which we can consider the object to be centered
 	const CENTERED_THRESHOLD = 0.01
-	const FOLLOW_SPEED = 5.0
+	const FOLLOW_SPEED = 3.0
 	
 	# If the position moves to far to the left, right, top, or bottom of the
 	# screen the camera is to attempt to follow it
@@ -51,7 +51,7 @@ func center_onto(follow_position: Vector2):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var viewport_sz = get_viewport_rect().size
+	var viewport_sz = get_viewport_rect().size / self.zoom
 	var half_width = viewport_sz.x / 2.0
 	var half_height = viewport_sz.y / 2.0
 	

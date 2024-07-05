@@ -42,6 +42,9 @@ func _load_level():
 		$RightLevelEdge.position.x = bounding_rect.end.x * tile_size_x
 		$DeathBoundary/CollisionShape2D.shape.distance = -bounding_rect.end.y * tile_size_y
 		
+		# Keep camera centered on the player
+		$Camera2D.center_onto($Level/Home.position)
+		
 		load_level.emit()
 	else:
 		print("Last level or invalid level name") #TODO: eventually add something for winning the game
