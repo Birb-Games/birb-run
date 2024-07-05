@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckqjrkfl5ui10"]
+
+[ext_resource type="Script" path="res://scenes/WinGate.gd" id="1_3v4gw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goaww"]
+radius = 15.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g720u"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 25.0
+direction = Vector3(0, 0, 0)
+spread = 10.0
+orbit_velocity_max = 2.0
+radial_velocity_max = 12.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.5
+color = Color(0, 0.802333, 0.83, 1)
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+
+[node name="WinGate" type="Area2D"]
+script = ExtResource("1_3v4gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_goaww")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_g720u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
