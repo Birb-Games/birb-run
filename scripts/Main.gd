@@ -20,7 +20,9 @@ func _process(_delta):
 
 func on_level_completed():
 	level_num += 1
+	var level = $Level
 	remove_child($Level)
+	level.queue_free()
 	_load_level()
 
 func _load_level():
@@ -42,7 +44,8 @@ func _load_level():
 		$RightLevelEdge.position.x = bounding_rect.end.x * tile_size_x
 		$DeathBoundary/CollisionShape2D.shape.distance = -bounding_rect.end.y * tile_size_y
 		
-		# Keep camera centered on the player
+		# Keep camera centered on the player (the player will be teleported to
+		# the home position and therefore we want to center on that position)
 		$Camera2D.center_onto($Level/Home.position)
 		
 		load_level.emit()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cclinrvnuno6c"]
+[gd_scene load_steps=12 format=3 uid="uid://cclinrvnuno6c"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_yfkd8"]
 [ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="2_ww34p"]
 [ext_resource type="Script" path="res://scripts/PlayerAnimationController.gd" id="3_g4rha"]
+[ext_resource type="Texture2D" uid="uid://unqktk43tabt" path="res://assets/sprites/death_particle.png" id="4_7r42h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsq7k"]
 size = Vector2(12, 15)
@@ -48,6 +49,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6b8du"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 0.88
+hue_variation_min = -0.06
+hue_variation_max = 0.4
+
 [node name="Character" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_yfkd8")
@@ -63,3 +77,13 @@ sprite_frames = SubResource("SpriteFrames_tp8kh")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("3_g4rha")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 280
+process_material = SubResource("ParticleProcessMaterial_6b8du")
+texture = ExtResource("4_7r42h")
+one_shot = true
+explosiveness = 0.75
+
+[connection signal="just_died" from="." to="." method="_on_just_died"]
