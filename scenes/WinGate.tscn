@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckqjrkfl5ui10"]
 
-[ext_resource type="Script" path="res://scenes/WinGate.gd" id="1_3v4gw"]
+[ext_resource type="Script" path="res://scripts/WinGate.gd" id="1_3v4gw"]
 [ext_resource type="AudioStream" uid="uid://dvtlawwq8ncqh" path="res://assets/sfx/teleport.wav" id="2_4d03w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_goaww"]
