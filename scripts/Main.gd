@@ -19,6 +19,8 @@ func _process(_delta):
 	update_camera()
 
 func on_level_completed():
+	$LevelChangeAudioPlayer.play()
+	
 	level_num += 1
 	var level = $Level
 	remove_child($Level)
