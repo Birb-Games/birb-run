@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckqjrkfl5ui10"]
+[gd_scene load_steps=5 format=3 uid="uid://ckqjrkfl5ui10"]
 
 [ext_resource type="Script" path="res://scenes/WinGate.gd" id="1_3v4gw"]
+[ext_resource type="AudioStream" uid="uid://dvtlawwq8ncqh" path="res://assets/sfx/teleport.wav" id="2_4d03w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_goaww"]
 radius = 15.0
@@ -31,5 +32,9 @@ shape = SubResource("CircleShape2D_goaww")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_g720u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4d03w")
+pitch_scale = 0.94
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

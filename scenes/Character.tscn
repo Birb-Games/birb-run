@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cclinrvnuno6c"]
+[gd_scene load_steps=11 format=3 uid="uid://cclinrvnuno6c"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_yfkd8"]
 [ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="2_ww34p"]
 [ext_resource type="Script" path="res://scripts/PlayerAnimationController.gd" id="3_g4rha"]
+[ext_resource type="AudioStream" uid="uid://cwk5g1ila100g" path="res://assets/sfx/jump.wav" id="4_mfept"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsq7k"]
 size = Vector2(110, 114)
@@ -64,3 +65,7 @@ sprite_frames = SubResource("SpriteFrames_tp8kh")
 animation = &"walking"
 autoplay = "idle"
 script = ExtResource("3_g4rha")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mfept")
+pitch_scale = 1.1
