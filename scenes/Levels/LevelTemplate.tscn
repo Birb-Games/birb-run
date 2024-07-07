@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://de5q5snr326ce"]
+
+[ext_resource type="TileSet" uid="uid://sps0nu118bqw" path="res://assets/tilemaps/tilemap.tres" id="1_gtscu"]
+[ext_resource type="TileSet" uid="uid://bylmlu4fss8lf" path="res://assets/tilemaps/tiledanger.tres" id="2_y7osw"]
+[ext_resource type="PackedScene" uid="uid://ckqjrkfl5ui10" path="res://scenes/WinGate.tscn" id="3_7oqk4"]
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_gtscu")
+format = 2
+
+[node name="Hazards" type="TileMap" parent="."]
+tile_set = ExtResource("2_y7osw")
+format = 2
+
+[node name="WinGate" parent="." instance=ExtResource("3_7oqk4")]
+
+[node name="Home" type="Marker2D" parent="."]
+gizmo_extents = 14.0
+
+[node name="Enemies" type="Node" parent="."]
