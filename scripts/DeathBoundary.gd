@@ -6,5 +6,5 @@ func _ready():
 	player = $/root/Root/Player
 
 func _on_body_entered(body):
-	if body.name == player.name and not player.dead:
+	if body is Player and not player.dead:
 		player.just_died.emit()

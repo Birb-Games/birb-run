@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 
@@ -24,9 +26,9 @@ func _process(delta):
 		dead = false
 		position = home.position
 		$AnimatedSprite2D.show()
+		$CollisionShape2D.disabled = false
 	elif respawn_timer > 0.0 and dead:
 		respawn_timer -= delta
-		$AnimatedSprite2D.hide()
 
 func _physics_process(delta):
 	# if the player is dead, do not do physics on them
@@ -61,3 +63,9 @@ func _on_just_died():
 	$DeathAudioPlayer.play()
 	dead = true
 	respawn_timer = RESPAWN_DELAY
+	$AnimatedSprite2D.hide()
+	$CollisionShape2D.disabled = true
+	
+	# reset the velocity and orientation of the player
+	velocity = Vector2(0.0, 0.0)
+	$AnimatedSprite2D.flip_h = false

@@ -11,12 +11,16 @@ func _ready():
 
 # Update the camera
 func update_camera():
+	# only follow the player if the player is not dead
+	if $Player.dead:
+		$Camera2D.velocity = Vector2(0.0, 0.0)
+		return
 	# Keep camera centered on the player
 	$Camera2D.follow($Player.position)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	update_camera()
+	update_camera()	
 
 func on_level_completed():
 	$LevelChangeAudioPlayer.play()
