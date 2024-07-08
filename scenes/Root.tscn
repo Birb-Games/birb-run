@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct2d8b0xfiepn"]
+[gd_scene load_steps=8 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_77vjf"]
 [ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://scenes/Character.tscn" id="1_kneti"]
@@ -6,9 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dc8es0k4ttlx5" path="res://scenes/DeathBoundary.tscn" id="5_w5tu4"]
 [ext_resource type="AudioStream" uid="uid://dvtlawwq8ncqh" path="res://assets/sfx/teleport.wav" id="6_bx7vf"]
 [ext_resource type="PackedScene" uid="uid://ps3upauivid1" path="res://scenes/LevelEdge.tscn" id="6_cgy5j"]
+[ext_resource type="PackedScene" uid="uid://eefsxgl3abjj" path="res://scenes/PauseMenu.tscn" id="7_n3j20"]
 
 [node name="Root" type="Node2D"]
+top_level = true
 script = ExtResource("1_77vjf")
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_n3j20")]
 
 [node name="Player" parent="." instance=ExtResource("1_kneti")]
 
