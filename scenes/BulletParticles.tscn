@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3des20latufy"]
+
+[ext_resource type="Texture2D" uid="uid://unqktk43tabt" path="res://assets/sprites/death_particle.png" id="1_17d77"]
+[ext_resource type="Script" path="res://scripts/BulletParticles.gd" id="2_5r6ce"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nf088"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 0.6
+
+[node name="BulletParticles" type="GPUParticles2D"]
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_nf088")
+texture = ExtResource("1_17d77")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_5r6ce")

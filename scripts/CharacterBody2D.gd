@@ -71,6 +71,9 @@ func _on_load_level():
 	position = home.position
 
 func _on_just_died():
+	if dead:
+		return
+	
 	$DeathParticles.emitting = true
 	$DeathAudioPlayer.play()
 	dead = true

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Blorb enemy AI script
 
-const MOVE_SPEED = 20.0
+const MOVE_SPEED = 24.0
 const MAX_COLLISIONS = 6
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # determines if we keep moving whether we will fall off an edge or not and therefore
 # also when we should turn around
 func at_edge():
-	var turn_around = true
+	var edge = true
 	
 	var sprite_sz = $CollisionShape2D.shape.size
 	var offset_x = (scale.x * sprite_sz.x) * sign(velocity.x)
@@ -32,7 +32,7 @@ func at_edge():
 		var collision = get_slide_collision(index)
 		var body = collision.get_collider()
 		if body is TileMap and body.position.y < position.y - scale.x * sprite_sz.x * 0.5:
-			turn_around = false
+			edge = false
 			break
 	
 	# translate the sprite back to its original position
@@ -40,7 +40,7 @@ func at_edge():
 	move_and_slide()
 	velocity = current_velocity
 	
-	return turn_around
+	return edge
 		
 func _physics_process(delta):
 	# Add the gravity.
@@ -68,5 +68,5 @@ func _physics_process(delta):
 # with a restorative force and I do not want that for when the player collides
 # with the enemy sprites
 func _on_area_2d_body_entered(body):
-	if body is Player:
+	if body is Player and not body.dead:
 		body.just_died.emit()
