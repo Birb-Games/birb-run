@@ -7,7 +7,7 @@ var level_num = 0
 signal load_level
 
 func _ready():
-	_load_level()
+	pass
 
 # Update the camera
 func update_camera():

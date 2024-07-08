@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct2d8b0xfiepn"]
+[gd_scene load_steps=9 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_77vjf"]
 [ext_resource type="PackedScene" uid="uid://cclinrvnuno6c" path="res://scenes/Character.tscn" id="1_kneti"]
+[ext_resource type="PackedScene" uid="uid://b360vkyso2uy" path="res://scenes/MainMenu.tscn" id="2_bagh4"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_nejv0"]
 [ext_resource type="PackedScene" uid="uid://dc8es0k4ttlx5" path="res://scenes/DeathBoundary.tscn" id="5_w5tu4"]
 [ext_resource type="AudioStream" uid="uid://dvtlawwq8ncqh" path="res://assets/sfx/teleport.wav" id="6_bx7vf"]
@@ -12,9 +13,13 @@
 top_level = true
 script = ExtResource("1_77vjf")
 
+[node name="MainMenu" parent="." instance=ExtResource("2_bagh4")]
+
 [node name="PauseMenu" parent="." instance=ExtResource("7_n3j20")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_kneti")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
