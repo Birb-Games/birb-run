@@ -22,6 +22,8 @@ func on_level_completed():
 	$LevelChangeAudioPlayer.play()
 	
 	level_num += 1
+	get_node("MainMenu/Control/LevelSelect/GridContainer/" + str(level_num)).disabled = false
+	
 	var level = $Level
 	remove_child($Level)
 	level.queue_free()

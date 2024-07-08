@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export var all_levels_open: bool
+
 func _on_continue_pressed():
 	get_tree().paused = false
 	$/root/Root._load_level()
