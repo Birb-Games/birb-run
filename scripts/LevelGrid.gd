@@ -17,7 +17,7 @@ func _ready():
 		level_button.add_theme_font_size_override("font_size", BUTTON_FONT_SIZE)
 		level_button.set_script(load("res://scripts/LevelButton.gd"))
 		level_button.pressed.connect(level_button._on_pressed)
-		level_button.selected.connect($"../../../../MainMenu"._on_level_selected)
-		if i > 0 and !$"../../../../MainMenu".all_levels_open:
+		level_button.selected.connect($"../../.."._on_level_selected)
+		if i > 0 and !$"../../..".all_levels_open:
 			level_button.disabled = true
 		add_child(level_button)

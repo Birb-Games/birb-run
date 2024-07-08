@@ -3,16 +3,17 @@ extends Node2D
 # This script should manage loading levels and managing gameobjects in the root node
 
 var level_num = 0
+var player = load("res://scenes/Player.tscn").instantiate()
 
 signal load_level
-
-func _ready():
-	get_tree().paused = true
 
 # Update the camera
 func update_camera():
 	# Keep camera centered on the player
-	$Camera2D.follow($Player.position)
+	if $Player:
+		$Camera2D.follow($Player.position)
+	else:
+		$Camera2D.follow(Vector2(1920 / 2, 1080 / 2))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -22,14 +23,16 @@ func on_level_completed():
 	$LevelChangeAudioPlayer.play()
 	
 	level_num += 1
-	get_node("MainMenu/Control/LevelSelect/GridContainer/" + str(level_num)).disabled = false
+	$MainMenu/Control.add_child($MainMenu.level_select_screen)
+	get_node("MainMenu/Control/LevelSelectScreen/GridContainer/" + str(level_num)).disabled = false
+	$MainMenu/Control.remove_child($MainMenu.level_select_screen)
 	
-	var level = $Level
-	remove_child($Level)
-	level.queue_free()
+	$Level.queue_free()
 	_load_level()
 
 func _load_level():
+	print("loading level")
+	add_child(player)
 	var new_level = load("res://scenes/Levels/Level" + str(level_num) + ".tscn")
 	if new_level != null:
 		add_child(new_level.instantiate())

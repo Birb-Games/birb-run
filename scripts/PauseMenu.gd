@@ -10,30 +10,21 @@ func _on_resume_pressed():
 	visible = false
 
 func _on_quit_pressed():
+	var root = $/root/Root
+	
 	# Unload the current level
-	var level = $/root/Root/Level
-	$/root/Root.remove_child(level)
-	level.queue_free()
+	root.get_node("Level").queue_free()
 	
 	# Enable the main menu
-	var main_menu = $/root/Root/MainMenu
-	main_menu.process_mode = Node.PROCESS_MODE_ALWAYS
-	main_menu.get_node("Control/Main").visible = true
-	main_menu.get_node("Control/Main").process_mode = Node.PROCESS_MODE_INHERIT
-	main_menu.get_node("Control/LevelSelect").process_mode = Node.PROCESS_MODE_DISABLED
-	main_menu.get_node("Control/LevelSelect").visible = false
-	if $/root/Root.level_num == 0:
-		main_menu.get_node("Control/Main/VBoxContainer/Continue").text = "Start"
+	var main_menu = root.get_node("MainMenu")
+	main_menu.get_node("Control").add_child(main_menu.main_screen)
+	if root.level_num == 0:
+		main_menu.main_screen.get_node("VBoxContainer/Continue").text = "Start"
 	else:
-		main_menu.get_node("Control/Main/VBoxContainer/Continue").text = "Continue"
-	main_menu.visible = true
+		main_menu.main_screen.get_node("VBoxContainer/Continue").text = "Continue"
 	
-	# Hide Character
-	$/root/Root/Player.visible = false
-	
-	# Pause physics
-	get_tree().paused = true
+	# Remove Character
+	root.remove_child(root.player)
 	
 	# Disable pause menu
-	visible = false
-	process_mode = Node.PROCESS_MODE_DISABLED
+	root.remove_child(self)
