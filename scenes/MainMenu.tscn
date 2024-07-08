@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b360vkyso2uy"]
+[gd_scene load_steps=3 format=3 uid="uid://b360vkyso2uy"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_t7lnq"]
+[ext_resource type="Script" path="res://scripts/LevelGrid.gd" id="2_fetvd"]
 
 [node name="MainMenu" type="CanvasLayer"]
 process_mode = 3
@@ -14,22 +15,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="Control"]
+[node name="Main" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Control/Main"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -188.0
-offset_top = 50.0
+offset_top = 45.0
 offset_right = 188.0
-offset_bottom = 113.0
+offset_bottom = 108.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 45
 text = "Platformer Demo"
 fit_content = true
 autowrap_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Main"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -37,28 +46,60 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.5
-offset_top = -50.5
-offset_right = 49.5
-offset_bottom = 50.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Continue" type="Button" parent="Control/VBoxContainer"]
+[node name="Continue" type="Button" parent="Control/Main/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Continue"
+text = "Start"
 
-[node name="SelectLevel" type="Button" parent="Control/VBoxContainer"]
+[node name="SelectLevel" type="Button" parent="Control/Main/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Select Level"
 
-[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+[node name="Quit" type="Button" parent="Control/Main/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit Game"
 
-[connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/SelectLevel" to="." method="_on_select_level_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="LevelSelect" type="Control" parent="Control"]
+process_mode = 4
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/LevelSelect"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 188.0
+offset_bottom = 62.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Level Select"
+fit_content = true
+autowrap_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control/LevelSelect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 940.0
+offset_bottom = 520.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+script = ExtResource("2_fetvd")
+
+[connection signal="pressed" from="Control/Main/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/Main/VBoxContainer/SelectLevel" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="Control/Main/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

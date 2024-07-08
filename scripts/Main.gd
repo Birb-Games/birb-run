@@ -7,7 +7,7 @@ var level_num = 0
 signal load_level
 
 func _ready():
-	pass
+	get_tree().paused = true
 
 # Update the camera
 func update_camera():
