@@ -6,7 +6,8 @@
 blend_mode = 3
 
 [node name="PauseMenuCanvas" type="CanvasLayer"]
-process_mode = 4
+process_mode = 3
+visible = false
 script = ExtResource("1_uhirf")
 
 [node name="PauseMenu" type="Control" parent="."]

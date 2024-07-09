@@ -17,6 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	$DeathParticles.lifetime = RESPAWN_DELAY / 2.0
+	$"..".load_level.connect(_on_load_level)
 
 func _process(delta):
 	# update death timer
@@ -53,7 +54,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_load_level():
-	visible = true
 	home = $"../Level/Home"
 	position = home.position
 
