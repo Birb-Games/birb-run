@@ -24,7 +24,9 @@ func on_level_completed():
 	
 	level_num += 1
 	$MainMenu/Control.add_child($MainMenu.level_select_screen)
-	get_node("MainMenu/Control/LevelSelectScreen/GridContainer/" + str(level_num)).disabled = false
+	
+	if get_node("MainMenu/Control/LevelSelectScreen/GridContainer/" + str(level_num)):
+		get_node("MainMenu/Control/LevelSelectScreen/GridContainer/" + str(level_num)).disabled = false
 	$MainMenu/Control.remove_child($MainMenu.level_select_screen)
 	
 	$Level.name = "LevelToFree"
@@ -32,15 +34,15 @@ func on_level_completed():
 	_load_level()
 
 func _load_level():
-	print("loading level")
-	if !$Player:
-		add_child(player)
 	var new_level = load("res://scenes/Levels/Level" + str(level_num) + ".tscn")
 	if new_level != null:
 		var instance = new_level.instantiate()
 		instance.name = "Level"
 		add_child(instance)
 		
+		if !$Player:
+			add_child(player)
+			
 		# Set the bounds of the camera
 		var bounding_rect = $Level/TileMap.get_used_rect()
 		var tile_size_x = $Level/TileMap.scale.x * float($Level/TileMap.tile_set.tile_size.x)
@@ -61,4 +63,5 @@ func _load_level():
 		
 		load_level.emit()
 	else:
-		print("Last level or invalid level name") #TODO: eventually add something for winning the game
+		remove_child(player)
+		$MainMenu/Control.add_child($MainMenu.level_select_screen)

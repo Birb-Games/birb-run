@@ -21,3 +21,7 @@ func _ready():
 		if i > 0 and !$"../../..".all_levels_open:
 			level_button.disabled = true
 		add_child(level_button)
+
+func _on_back_pressed():
+	$"../..".add_child($"../../..".main_screen)
+	$"../..".remove_child($"../../..".level_select_screen)

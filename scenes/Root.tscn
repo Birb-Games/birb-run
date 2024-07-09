@@ -12,7 +12,6 @@ top_level = true
 script = ExtResource("1_77vjf")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_bagh4")]
-all_levels_open = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

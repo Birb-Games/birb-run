@@ -26,8 +26,27 @@ layout_mode = 0
 offset_left = 20.0
 offset_top = 90.0
 offset_right = 940.0
-offset_bottom = 520.0
+offset_bottom = 450.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 4
 script = ExtResource("1_gm2xn")
+
+[node name="Back" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -70.0
+offset_right = 130.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="Back" to="GridContainer" method="_on_back_pressed"]
