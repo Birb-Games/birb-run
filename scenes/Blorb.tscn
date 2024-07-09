@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://cuf161br1wt07"]
+
+[ext_resource type="Script" path="res://scripts/Blorb.gd" id="1_ktqms"]
+[ext_resource type="Texture2D" uid="uid://dj8l27e4s3mse" path="res://assets/sprites/blorb.png" id="1_p25j3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcf5g"]
+atlas = ExtResource("1_p25j3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd45m"]
+atlas = ExtResource("1_p25j3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afmgc"]
+atlas = ExtResource("1_p25j3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrey6"]
+atlas = ExtResource("1_p25j3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_octpg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcf5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd45m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afmgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrey6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7y12"]
+size = Vector2(14, 13)
+
+[sub_resource type="GDScript" id="GDScript_p2mlv"]
+script/source = "extends Area2D
+
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pvnt"]
+radius = 7.0
+
+[node name="Blorb" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_ktqms")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_octpg")
+autoplay = "default"
+frame = 1
+frame_progress = 0.105303
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+editor_description = "This is for the physics"
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_m7y12")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+script = SubResource("GDScript_p2mlv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+editor_description = "This is for collision detection with other objects but for when you don't want to actually result in a force being applied"
+shape = SubResource("CircleShape2D_4pvnt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

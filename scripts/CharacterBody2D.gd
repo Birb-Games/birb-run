@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 
@@ -25,9 +27,18 @@ func _process(delta):
 		dead = false
 		position = home.position
 		$AnimatedSprite2D.show()
+		$CollisionShape2D.disabled = false
 	elif respawn_timer > 0.0 and dead:
 		respawn_timer -= delta
-		$AnimatedSprite2D.hide()
+
+func handle_collision():
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		var body = collision.get_collider()
+		# Determine if we hit a hazardous tile, and if we did,
+		# kill the player
+		if (body is TileMap) and (body.name == "Hazards"):
+			just_died.emit()
 
 func _physics_process(delta):
 	# if the player is dead, do not do physics on them
@@ -52,13 +63,24 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+	
+	# Check for collisions
+	handle_collision()
 
 func _on_load_level():
 	home = $"../Level/Home"
 	position = home.position
 
 func _on_just_died():
+	if dead:
+		return
+	
 	$DeathParticles.emitting = true
 	$DeathAudioPlayer.play()
 	dead = true
 	respawn_timer = RESPAWN_DELAY
+	$AnimatedSprite2D.hide()
+	
+	# reset the velocity and orientation of the player
+	velocity = Vector2(0.0, 0.0)
+	$AnimatedSprite2D.flip_h = false

@@ -6,6 +6,7 @@
 distance = -544.0
 
 [node name="DeathBoundary" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_nvy3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

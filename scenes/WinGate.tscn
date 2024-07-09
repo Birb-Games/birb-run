@@ -23,6 +23,7 @@ hue_variation_min = -0.02
 hue_variation_max = 0.02
 
 [node name="WinGate" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_3v4gw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

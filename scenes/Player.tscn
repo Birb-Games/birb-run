@@ -66,6 +66,7 @@ hue_variation_max = 0.4
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 2
 script = ExtResource("1_7qkqe")
 speed = 100.0
 jump_velocity = -300.0
