@@ -12,6 +12,8 @@ func _on_resume_pressed():
 func _on_quit_pressed():
 	var root = $/root/Root
 	
+	get_tree().paused = false
+	
 	# Unload the current level
 	root.get_node("Level").queue_free()
 	
@@ -27,4 +29,5 @@ func _on_quit_pressed():
 	root.remove_child(root.player)
 	
 	# Disable pause menu
+	visible = false
 	root.remove_child(self)

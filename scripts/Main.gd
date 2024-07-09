@@ -27,15 +27,19 @@ func on_level_completed():
 	get_node("MainMenu/Control/LevelSelectScreen/GridContainer/" + str(level_num)).disabled = false
 	$MainMenu/Control.remove_child($MainMenu.level_select_screen)
 	
-	$Level.queue_free()
+	$Level.name = "LevelToFree"
+	$LevelToFree.queue_free()
 	_load_level()
 
 func _load_level():
 	print("loading level")
-	add_child(player)
+	if !$Player:
+		add_child(player)
 	var new_level = load("res://scenes/Levels/Level" + str(level_num) + ".tscn")
 	if new_level != null:
-		add_child(new_level.instantiate())
+		var instance = new_level.instantiate()
+		instance.name = "Level"
+		add_child(instance)
 		
 		# Set the bounds of the camera
 		var bounding_rect = $Level/TileMap.get_used_rect()
