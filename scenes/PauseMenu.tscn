@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://eefsxgl3abjj"]
+
+[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_uhirf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ovuks"]
+blend_mode = 3
+
+[node name="PauseMenuCanvas" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_uhirf")
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_ovuks")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41598, 0.41598, 0.41598, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(175, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -16.0
+offset_right = 4.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="Quit" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit to Main Menu
+"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

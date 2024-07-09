@@ -1,29 +1,29 @@
 [gd_scene load_steps=14 format=3 uid="uid://cclinrvnuno6c"]
 
-[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_yfkd8"]
-[ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="2_ww34p"]
-[ext_resource type="Script" path="res://scripts/PlayerAnimationController.gd" id="3_g4rha"]
-[ext_resource type="Texture2D" uid="uid://unqktk43tabt" path="res://assets/sprites/death_particle.png" id="4_7r42h"]
-[ext_resource type="AudioStream" uid="uid://cwk5g1ila100g" path="res://assets/sfx/jump.wav" id="4_mfept"]
-[ext_resource type="AudioStream" uid="uid://l5j60m1vxjvo" path="res://assets/sfx/death.wav" id="6_th7cq"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_7qkqe"]
+[ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="2_tnkvu"]
+[ext_resource type="Script" path="res://scripts/PlayerAnimationController.gd" id="3_xfft1"]
+[ext_resource type="AudioStream" uid="uid://cwk5g1ila100g" path="res://assets/sfx/jump.wav" id="4_51nt7"]
+[ext_resource type="Texture2D" uid="uid://unqktk43tabt" path="res://assets/sprites/death_particle.png" id="5_mbj1l"]
+[ext_resource type="AudioStream" uid="uid://l5j60m1vxjvo" path="res://assets/sfx/death.wav" id="6_xd17j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsq7k"]
 size = Vector2(12, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mvds"]
-atlas = ExtResource("2_ww34p")
+atlas = ExtResource("2_tnkvu")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chbnq"]
-atlas = ExtResource("2_ww34p")
+atlas = ExtResource("2_tnkvu")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgpq0"]
-atlas = ExtResource("2_ww34p")
+atlas = ExtResource("2_tnkvu")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7q55c"]
-atlas = ExtResource("2_ww34p")
+atlas = ExtResource("2_tnkvu")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tp8kh"]
@@ -64,10 +64,10 @@ scale_max = 0.88
 hue_variation_min = -0.06
 hue_variation_max = 0.4
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
-script = ExtResource("1_yfkd8")
+script = ExtResource("1_7qkqe")
 speed = 100.0
 jump_velocity = -300.0
 
@@ -79,21 +79,21 @@ shape = SubResource("RectangleShape2D_qsq7k")
 sprite_frames = SubResource("SpriteFrames_tp8kh")
 animation = &"idle"
 autoplay = "idle"
-script = ExtResource("3_g4rha")
+script = ExtResource("3_xfft1")
 
 [node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_mfept")
+stream = ExtResource("4_51nt7")
 pitch_scale = 1.1
 
 [node name="DeathParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 280
 process_material = SubResource("ParticleProcessMaterial_6b8du")
-texture = ExtResource("4_7r42h")
+texture = ExtResource("5_mbj1l")
 one_shot = true
 explosiveness = 0.75
 
 [node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_th7cq")
+stream = ExtResource("6_xd17j")
 
 [connection signal="just_died" from="." to="." method="_on_just_died"]
