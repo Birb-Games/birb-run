@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://eefsxgl3abjj"]
 
-[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_uhirf"]
+[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_t1ofb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ovuks"]
 blend_mode = 3
@@ -8,7 +8,7 @@ blend_mode = 3
 [node name="PauseMenuCanvas" type="CanvasLayer"]
 process_mode = 3
 visible = false
-script = ExtResource("1_uhirf")
+script = ExtResource("1_t1ofb")
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 2

@@ -80,11 +80,11 @@ func update_walking(delta):
 	var prev_position = position
 	move_and_slide()
 	var displacement = abs(position.x - prev_position.x)
-	var at_edge = at_edge()
+	var edge = at_edge()
 	# we are at a wall if we can not travel the full distance
-	var at_wall = displacement < MOVE_SPEED * delta * 0.5
+	var wall = displacement < MOVE_SPEED * delta * 0.5
 		
-	if at_edge or at_wall:
+	if edge or wall:
 		$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
 
 func update_idle():

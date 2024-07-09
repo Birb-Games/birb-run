@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckt6bjtscgusn"]
 
-[ext_resource type="Script" path="res://scripts/LevelGrid.gd" id="1_gm2xn"]
+[ext_resource type="Script" path="res://scripts/LevelGrid.gd" id="1_4j715"]
 
 [node name="LevelSelectScreen" type="Control"]
 layout_mode = 3
@@ -30,7 +30,7 @@ offset_bottom = 450.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 4
-script = ExtResource("1_gm2xn")
+script = ExtResource("1_4j715")
 
 [node name="Back" type="Button" parent="."]
 custom_minimum_size = Vector2(260, 50)
