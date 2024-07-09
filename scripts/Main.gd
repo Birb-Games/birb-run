@@ -59,14 +59,13 @@ func _load_level():
 	instance.name = "Level"
 	call_deferred("add_child", instance)
 	
-	remove_child(player)
-	player.queue_free()
+	player.free()
 	player = load("res://scenes/Player.tscn").instantiate()
-	add_child(player)
-	
 	# Set the player's position and home
-	$Player.position = instance.get_node("Home").position
-	$Player.home = instance.get_node("Home")
+	player.position = instance.get_node("Home").position
+	player.home = instance.get_node("Home")
+	if not has_node("Player"):
+		call_deferred("add_child", player)
 			
 	# Set the bounds of the camera
 	var tile_map = instance.get_node("TileMap")
