@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckt6bjtscgusn"]
+[gd_scene load_steps=3 format=3 uid="uid://ckt6bjtscgusn"]
 
 [ext_resource type="Script" path="res://scripts/LevelGrid.gd" id="1_4j715"]
+[ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="1_wp22r"]
 
 [node name="LevelSelectScreen" type="Control"]
 layout_mode = 3
@@ -16,6 +17,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 188.0
 offset_bottom = 62.0
+theme_override_fonts/normal_font = ExtResource("1_wp22r")
 theme_override_font_sizes/normal_font_size = 50
 text = "Level Select"
 fit_content = true
@@ -40,13 +42,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -130.0
-offset_top = -70.0
-offset_right = 130.0
-offset_bottom = -20.0
+offset_left = 213.0
+offset_top = -59.0
+offset_right = 473.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_wp22r")
 theme_override_font_sizes/font_size = 25
 text = "Back to Main Menu"
+flat = true
 
 [connection signal="pressed" from="Back" to="GridContainer" method="_on_back_pressed"]
