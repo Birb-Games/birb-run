@@ -18,16 +18,8 @@ func _on_quit_pressed():
 	root.get_node("Level").queue_free()
 	
 	# Enable the main menu
-	var main_menu = root.get_node("MainMenu")
-	main_menu.get_node("Control").add_child(main_menu.main_screen)
-	if root.level_num == 0:
-		main_menu.main_screen.get_node("VBoxContainer/Continue").text = "Start"
-	else:
-		main_menu.main_screen.get_node("VBoxContainer/Continue").text = "Continue"
+	var ui = root.get_node("UI")
+	ui.load_screen_from_scene(ui.main_menu)
 	
 	# Remove Character
 	root.remove_child(root.player)
-	
-	# Disable pause menu
-	visible = false
-	root.remove_child(self)

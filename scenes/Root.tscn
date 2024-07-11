@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct2d8b0xfiepn"]
+[gd_scene load_steps=8 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_77vjf"]
-[ext_resource type="PackedScene" uid="uid://b360vkyso2uy" path="res://scenes/MainMenu.tscn" id="2_bagh4"]
+[ext_resource type="PackedScene" uid="uid://dim87ptcaaygy" path="res://scenes/UI/WinScreen.tscn" id="2_4yjb5"]
+[ext_resource type="PackedScene" uid="uid://b360vkyso2uy" path="res://scenes/UI/UI.tscn" id="2_bagh4"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_nejv0"]
 [ext_resource type="PackedScene" uid="uid://dc8es0k4ttlx5" path="res://scenes/DeathBoundary.tscn" id="5_w5tu4"]
 [ext_resource type="AudioStream" uid="uid://dvtlawwq8ncqh" path="res://assets/sfx/teleport.wav" id="6_bx7vf"]
@@ -10,8 +11,9 @@
 [node name="Root" type="Node2D"]
 top_level = true
 script = ExtResource("1_77vjf")
+win_screen = ExtResource("2_4yjb5")
 
-[node name="MainMenu" parent="." instance=ExtResource("2_bagh4")]
+[node name="UI" parent="." instance=ExtResource("2_bagh4")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
