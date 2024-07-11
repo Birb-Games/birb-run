@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ct2d8b0xfiepn"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_77vjf"]
+[ext_resource type="PackedScene" uid="uid://dmhgqdg1a8u38" path="res://scenes/UI/WinScreen.tscn" id="2_4yjb5"]
 [ext_resource type="PackedScene" uid="uid://b360vkyso2uy" path="res://scenes/UI/UI.tscn" id="2_bagh4"]
-[ext_resource type="PackedScene" uid="uid://ckt6bjtscgusn" path="res://scenes/UI/LevelSelectScreen.tscn" id="2_lsq8a"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_nejv0"]
 [ext_resource type="PackedScene" uid="uid://dc8es0k4ttlx5" path="res://scenes/DeathBoundary.tscn" id="5_w5tu4"]
 [ext_resource type="AudioStream" uid="uid://dvtlawwq8ncqh" path="res://assets/sfx/teleport.wav" id="6_bx7vf"]
@@ -11,7 +11,7 @@
 [node name="Root" type="Node2D"]
 top_level = true
 script = ExtResource("1_77vjf")
-win_screen = ExtResource("2_lsq8a")
+win_screen = ExtResource("2_4yjb5")
 
 [node name="UI" parent="." instance=ExtResource("2_bagh4")]
 

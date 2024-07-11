@@ -6,10 +6,14 @@ func _input(event):
 		visible = !visible
 
 func _on_resume_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	get_tree().paused = false
 	visible = false
 
 func _on_quit_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var root = $/root/Root
 	
 	get_tree().paused = false

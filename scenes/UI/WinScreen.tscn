@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmhgqdg1a8u38"]
+
+[ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="1_gd136"]
+[ext_resource type="Script" path="res://scripts/WinScreen.gd" id="1_oumm5"]
+[ext_resource type="PackedScene" uid="uid://dv2s7rdxwkubg" path="res://scenes/UI/Credits.tscn" id="2_nu6mx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oumm5")
+credits_screen = ExtResource("2_nu6mx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+theme_override_constants/separation = 32
+
+[node name="YouWin" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gd136")
+theme_override_font_sizes/font_size = 128
+text = "
+YOU WIN!!!"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_gd136")
+theme_override_font_sizes/font_size = 48
+text = "congrats, you beat all
+of the levels!
+
+Thanks for playing :)"
+horizontal_alignment = 1
+
+[node name="Credits" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -122.0
+offset_right = 130.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_gd136")
+theme_override_font_sizes/font_size = 25
+text = "Credits"
+flat = true
+
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

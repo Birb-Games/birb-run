@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://eefsxgl3abjj"]
+[gd_scene load_steps=4 format=3 uid="uid://eefsxgl3abjj"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_t1ofb"]
+[ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="2_e1xqt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ovuks"]
 blend_mode = 3
@@ -30,6 +31,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.41598, 0.41598, 0.41598, 1)
 
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 2
+offset_left = 297.0
+offset_top = 143.0
+offset_right = 663.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("2_e1xqt")
+theme_override_font_sizes/font_size = 100
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
 custom_minimum_size = Vector2(175, 100)
 layout_mode = 1
@@ -48,13 +61,23 @@ grow_vertical = 2
 [node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.729412, 0.729412, 0.729412, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_e1xqt")
+theme_override_font_sizes/font_size = 32
 text = "Resume"
+flat = true
 
 [node name="Quit" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.729412, 0.729412, 0.729412, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_e1xqt")
+theme_override_font_sizes/font_size = 24
 text = "Quit to Main Menu
 "
+flat = true
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
