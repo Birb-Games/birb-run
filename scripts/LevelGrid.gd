@@ -7,6 +7,8 @@ var num_of_levels = 0
 const BUTTON_SIZE = 100 # length of the sides of each button in pixels
 const BUTTON_FONT_SIZE = 50
 
+static var font = load("res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf")
+
 func _ready():
 	# What level are we currently on?
 	# This will determine how many levels are unlocked
@@ -24,6 +26,7 @@ func _ready():
 		level_button.set_script(load("res://scripts/LevelButton.gd"))
 		level_button.pressed.connect(level_button._on_pressed)
 		level_button.selected.connect($"/root/Root/UI"._on_level_selected)
+		level_button.add_theme_font_override("font", font)
 		if i > current_level and !unlock_everything:
 			level_button.disabled = true
 		add_child(level_button)

@@ -1,8 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxrwyx3nq6agl"]
+[gd_scene load_steps=11 format=3 uid="uid://dxrwyx3nq6agl"]
 
 [ext_resource type="Script" path="res://scripts/MainMenuScreen.gd" id="1_xs4w7"]
 [ext_resource type="PackedScene" uid="uid://eefsxgl3abjj" path="res://scenes/UI/PauseMenu.tscn" id="2_d63xh"]
 [ext_resource type="PackedScene" uid="uid://ckt6bjtscgusn" path="res://scenes/UI/LevelSelectScreen.tscn" id="3_ehalm"]
+[ext_resource type="PackedScene" uid="uid://b5mb5ij787512" path="res://scenes/UI/Credits.tscn" id="4_8onp4"]
+[ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="4_r4eti"]
+[ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="5_wl2uc"]
+[ext_resource type="Script" path="res://scripts/MainMenuBirb.gd" id="6_yrx4e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t5ew"]
+atlas = ExtResource("5_wl2uc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqw70"]
+atlas = ExtResource("5_wl2uc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1vo6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t5ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqw70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -14,19 +40,21 @@ grow_vertical = 2
 script = ExtResource("1_xs4w7")
 pause_screen = ExtResource("2_d63xh")
 level_select_screen = ExtResource("3_ehalm")
+credits_screen = ExtResource("4_8onp4")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -188.0
-offset_top = 45.0
-offset_right = 188.0
-offset_bottom = 108.0
+offset_left = -178.0
+offset_top = 43.0
+offset_right = 179.0
+offset_bottom = 106.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 45
-text = "Platformer Demo"
+theme_override_fonts/normal_font = ExtResource("4_r4eti")
+theme_override_font_sizes/normal_font_size = 80
+text = "Birb Run"
 fit_content = true
 autowrap_mode = 0
 
@@ -48,18 +76,51 @@ grow_vertical = 2
 [node name="Continue" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.830335, 0.830335, 0.830335, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_r4eti")
+theme_override_font_sizes/font_size = 32
 text = "Start"
+flat = true
 
 [node name="SelectLevel" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.830335, 0.830335, 0.830335, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_r4eti")
+theme_override_font_sizes/font_size = 32
 text = "Select Level"
+flat = true
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.830335, 0.830335, 0.830335, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_r4eti")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.830335, 0.830335, 0.830335, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_r4eti")
+theme_override_font_sizes/font_size = 32
 text = "Quit Game"
+flat = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-75, 457)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_y1vo6")
+autoplay = "default"
+script = ExtResource("6_yrx4e")
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/SelectLevel" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
