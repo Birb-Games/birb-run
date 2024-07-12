@@ -36,5 +36,7 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_delete_save_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var ui =$"/root/Root/UI"
 	ui.load_screen_from_scene(confirm_delete_screen)
