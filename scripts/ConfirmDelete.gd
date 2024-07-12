@@ -1,10 +1,14 @@
 extends Control
 
 func _on_cancel_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var ui = $/root/Root/UI
 	ui.load_screen_from_scene(ui.main_menu)
 
 func _on_delete_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var ui = $/root/Root/UI
 	var root = $/root/Root
 	root.level_num = 0
