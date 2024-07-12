@@ -15,7 +15,7 @@ func load_screen_from_scene(screen: PackedScene):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_screen_from_scene(main_menu)
+	call_deferred("load_screen_from_scene", main_menu)
 
 func _on_level_selected(level):
 	get_node("/root/Root/UI/UIButtonPress").play()

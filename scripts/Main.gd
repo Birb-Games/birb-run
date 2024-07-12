@@ -12,6 +12,31 @@ var player = load("res://scenes/Player.tscn").instantiate()
 
 signal load_level
 
+const SAVE_PATH = "save.dat"
+func save():
+	# save progress to a file
+	var file = FileAccess.open("user://" + SAVE_PATH, FileAccess.WRITE)
+	# save the data as plain text strings because that's probably the easiest
+	# to handle for this game
+	file.store_string(str(level_num) + "\n")
+	file.store_string(str(unlocked) + "\n")
+	file.close()
+
+func load_save():
+	if not FileAccess.file_exists("user://" + SAVE_PATH):
+		return
+	# load progress from a file
+	var file = FileAccess.open("user://" + SAVE_PATH, FileAccess.READ)
+	var line: String
+	line = file.get_line()
+	level_num = int(line)
+	line = file.get_line()
+	unlocked = int(line)
+	file.close()
+
+func _ready():
+	load_save()
+
 # Update the camera
 func update_camera():
 	if not has_node("Player"):
@@ -87,3 +112,12 @@ func _load_level():
 	$Camera2D.center_onto(instance.get_node("Home").position)
 	
 	load_level.emit()
+
+# Autosave
+func _on_auto_save_timer_timeout():
+	save()
+
+func _notification(what):
+	# Handle window being closed
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save()

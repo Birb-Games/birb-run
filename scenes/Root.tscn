@@ -31,4 +31,9 @@ scale = Vector2(1, -1)
 stream = ExtResource("6_bx7vf")
 pitch_scale = 0.94
 
+[node name="AutoSaveTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="load_level" from="." to="DeathBoundary" method="_on_load_level"]
+[connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
