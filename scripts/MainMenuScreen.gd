@@ -3,6 +3,7 @@ extends Control
 @export var pause_screen: PackedScene
 @export var level_select_screen: PackedScene
 @export var credits_screen: PackedScene
+@export var confirm_delete_screen: PackedScene
 
 func _ready():
 	var root = $/root/Root
@@ -25,4 +26,9 @@ func _on_credits_pressed():
 	ui.load_screen_from_scene(credits_screen)
 
 func _on_quit_pressed():
+	$/root/Root.save()
 	get_tree().quit()
+
+func _on_delete_save_pressed():
+	var ui =$"/root/Root/UI"
+	ui.load_screen_from_scene(confirm_delete_screen)
