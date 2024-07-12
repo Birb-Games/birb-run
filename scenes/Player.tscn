@@ -96,4 +96,7 @@ explosiveness = 0.75
 [node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xd17j")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [connection signal="just_died" from="." to="." method="_on_just_died"]

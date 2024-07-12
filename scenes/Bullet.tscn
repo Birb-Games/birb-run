@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://hrdl4cvruw47"]
+[gd_scene load_steps=9 format=3 uid="uid://hrdl4cvruw47"]
 
 [ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_dbpnx"]
 [ext_resource type="Texture2D" uid="uid://dqpwa8cjug08e" path="res://assets/sprites/bullet.png" id="1_x8840"]
 [ext_resource type="PackedScene" uid="uid://d3des20latufy" path="res://scenes/BulletParticles.tscn" id="2_hharp"]
+[ext_resource type="AudioStream" uid="uid://w7tjw3mwax68" path="res://assets/sfx/lazer_shoot.wav" id="4_uvb06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6tki"]
 size = Vector2(6, 6)
@@ -41,5 +42,10 @@ shape = SubResource("RectangleShape2D_r6tki")
 sprite_frames = SubResource("SpriteFrames_15x1e")
 autoplay = "default"
 frame_progress = 0.0477429
+
+[node name="LazerAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uvb06")
+volume_db = 10.0
+attenuation = 32.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
