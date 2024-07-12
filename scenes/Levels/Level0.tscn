@@ -13,7 +13,7 @@ layer_0/tile_data = PackedInt32Array(917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 
 layer_0/tile_data = PackedInt32Array(786438, 196608, 3, 851974, 196608, 3, 786440, 131072, 3, 851976, 131072, 3, 720913, 0, 3, 720914, 0, 3)
 
 [node name="WinGate" parent="." index="2"]
-position = Vector2(1333, 93)
+position = Vector2(1349, 96)
 
 [node name="Home" parent="." index="3"]
 position = Vector2(39, 205)
