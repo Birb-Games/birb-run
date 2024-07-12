@@ -1,12 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckqjrkfl5ui10"]
+[gd_scene load_steps=10 format=3 uid="uid://ckqjrkfl5ui10"]
 
 [ext_resource type="Script" path="res://scripts/WinGate.gd" id="1_3v4gw"]
+[ext_resource type="Texture2D" uid="uid://dbs3s87roo3ng" path="res://assets/sprites/portal.png" id="2_eytx6"]
+[ext_resource type="Texture2D" uid="uid://dau55on3ss2sa" path="res://assets/sprites/portal_particle.png" id="2_ktd2v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_goaww"]
-radius = 15.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfu7i"]
+atlas = ExtResource("2_eytx6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsm4m"]
+atlas = ExtResource("2_eytx6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s27xu"]
+atlas = ExtResource("2_eytx6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aeq6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfu7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsm4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s27xu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l4sy"]
+size = Vector2(6, 16)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g720u"]
 particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.8, 0.8, 0.8)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
@@ -15,10 +47,11 @@ emission_ring_inner_radius = 25.0
 direction = Vector3(0, 0, 0)
 spread = 10.0
 orbit_velocity_max = 2.0
+radial_velocity_min = 1.0
 radial_velocity_max = 12.0
 gravity = Vector3(0, 0, 0)
-scale_max = 2.5
-color = Color(0, 0.802333, 0.83, 1)
+scale_min = 0.25
+scale_max = 0.4
 hue_variation_min = -0.02
 hue_variation_max = 0.02
 
@@ -26,11 +59,18 @@ hue_variation_max = 0.02
 collision_mask = 2
 script = ExtResource("1_3v4gw")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aeq6b")
+autoplay = "default"
+frame_progress = 0.787743
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_goaww")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5l4sy")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_g720u")
+texture = ExtResource("2_ktd2v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
