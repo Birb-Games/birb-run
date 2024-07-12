@@ -20,6 +20,7 @@ func save():
 	# to handle for this game
 	file.store_string(str(level_num) + "\n")
 	file.store_string(str(unlocked) + "\n")
+	file.store_string(("true" if player.double_jump_unlocked else "false") + "\n")
 	file.close()
 
 func load_save():
@@ -32,6 +33,8 @@ func load_save():
 	level_num = int(line)
 	line = file.get_line()
 	unlocked = int(line)
+	line = file.get_line()
+	player.double_jump_unlocked = true if line == "true" else false
 	file.close()
 
 func _ready():
@@ -84,8 +87,8 @@ func _load_level():
 	instance.name = "Level"
 	call_deferred("add_child", instance)
 	
-	player.free()
-	player = load("res://scenes/Player.tscn").instantiate()
+	#player.free()
+	#player = load("res://scenes/Player.tscn").instantiate()
 	# Set the player's position and home
 	player.position = instance.get_node("Home").position
 	player.home = instance.get_node("Home")

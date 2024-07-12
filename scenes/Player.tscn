@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cclinrvnuno6c"]
+[gd_scene load_steps=15 format=3 uid="uid://cclinrvnuno6c"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_7qkqe"]
 [ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="2_tnkvu"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cwk5g1ila100g" path="res://assets/sfx/jump.wav" id="4_51nt7"]
 [ext_resource type="Texture2D" uid="uid://unqktk43tabt" path="res://assets/sprites/death_particle.png" id="5_mbj1l"]
 [ext_resource type="AudioStream" uid="uid://l5j60m1vxjvo" path="res://assets/sfx/death.wav" id="6_xd17j"]
+[ext_resource type="AudioStream" uid="uid://cywlbjrw6kvjx" path="res://assets/sfx/powerup.wav" id="7_emb38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsq7k"]
 size = Vector2(12, 15)
@@ -81,10 +82,6 @@ animation = &"idle"
 autoplay = "idle"
 script = ExtResource("3_xfft1")
 
-[node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_51nt7")
-pitch_scale = 1.1
-
 [node name="DeathParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 280
@@ -93,10 +90,17 @@ texture = ExtResource("5_mbj1l")
 one_shot = true
 explosiveness = 0.75
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_51nt7")
+pitch_scale = 1.1
+
 [node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xd17j")
 
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
-current = true
+[node name="PowerupAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_emb38")
 
 [connection signal="just_died" from="." to="." method="_on_just_died"]

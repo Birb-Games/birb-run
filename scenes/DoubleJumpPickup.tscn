@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://yd1vm0tu0rsh"]
+
+[ext_resource type="Shader" path="res://scripts/Powerup.gdshader" id="1_pwqj3"]
+[ext_resource type="Script" path="res://scripts/DoubleJumpPickup.gd" id="1_v7re1"]
+[ext_resource type="Texture2D" uid="uid://u3gqx7f12hx" path="res://assets/sprites/DoubleJumpPickup.png" id="1_xdv0e"]
+[ext_resource type="Texture2D" uid="uid://b7b4lmkgw2koh" path="res://assets/PowerupNoise.tres" id="3_umpt7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fepj3"]
+radius = 6.0
+height = 22.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7umo"]
+shader = ExtResource("1_pwqj3")
+shader_parameter/noise = ExtResource("3_umpt7")
+
+[sub_resource type="Gradient" id="Gradient_e1vjy"]
+colors = PackedColorArray(1, 0.843137, 0, 1, 1, 0.962958, 0.817508, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wcs68"]
+gradient = SubResource("Gradient_e1vjy")
+
+[sub_resource type="Curve" id="Curve_dfkm2"]
+max_value = 1.5
+_data = [Vector2(0, 1.5), 0.0, 2.05533e-07, 0, 0, Vector2(0.286667, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rjolj"]
+curve = SubResource("Curve_dfkm2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5eonx"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 12.0
+direction = Vector3(0, -1, 0)
+scale_min = 0.0
+scale_max = 2.0
+scale_over_velocity_max = 25.0
+scale_over_velocity_curve = SubResource("CurveTexture_rjolj")
+color = Color(0.945335, 0.905878, 1, 1)
+color_ramp = SubResource("GradientTexture1D_wcs68")
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+turbulence_influence_min = 0.0
+
+[node name="DoubleJumpPickup" type="Area2D"]
+scale = Vector2(1.25, 1.25)
+collision_mask = 2
+script = ExtResource("1_v7re1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fepj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_q7umo")
+scale = Vector2(2, 2)
+texture = ExtResource("1_xdv0e")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_5eonx")
+lifetime = 2.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
