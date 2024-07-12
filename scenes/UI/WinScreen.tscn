@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dim87ptcaaygy"]
+[gd_scene load_steps=4 format=3 uid="uid://dmhgqdg1a8u38"]
 
 [ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="1_gd136"]
 [ext_resource type="Script" path="res://scripts/WinScreen.gd" id="1_oumm5"]
-[ext_resource type="PackedScene" uid="uid://b5mb5ij787512" path="res://scenes/UI/Credits.tscn" id="2_nu6mx"]
+[ext_resource type="PackedScene" uid="uid://dv2s7rdxwkubg" path="res://scenes/UI/Credits.tscn" id="2_nu6mx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

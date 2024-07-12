@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/MainMenuScreen.gd" id="1_xs4w7"]
 [ext_resource type="PackedScene" uid="uid://eefsxgl3abjj" path="res://scenes/UI/PauseMenu.tscn" id="2_d63xh"]
 [ext_resource type="PackedScene" uid="uid://ckt6bjtscgusn" path="res://scenes/UI/LevelSelectScreen.tscn" id="3_ehalm"]
-[ext_resource type="PackedScene" uid="uid://b5mb5ij787512" path="res://scenes/UI/Credits.tscn" id="4_8onp4"]
+[ext_resource type="PackedScene" uid="uid://dv2s7rdxwkubg" path="res://scenes/UI/Credits.tscn" id="4_8onp4"]
 [ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="4_r4eti"]
 [ext_resource type="PackedScene" uid="uid://b67kj1lkd2mgf" path="res://scenes/UI/ConfirmDelete.tscn" id="5_3towl"]
 [ext_resource type="Texture2D" uid="uid://dsbxufabiasgo" path="res://assets/sprites/player.png" id="5_wl2uc"]

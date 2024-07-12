@@ -13,15 +13,21 @@ func _ready():
 		$VBoxContainer/Continue.text = "Continue"
 
 func _on_continue_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	$/root/Root._load_level()
 	var ui = $"/root/Root/UI"
 	ui.load_screen_from_scene(pause_screen)
 
 func _on_select_level_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var ui = $"/root/Root/UI"
 	ui.load_screen_from_scene(level_select_screen)
 
 func _on_credits_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var ui = $"/root/Root/UI"
 	ui.load_screen_from_scene(credits_screen)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5mb5ij787512"]
+[gd_scene load_steps=3 format=3 uid="uid://dv2s7rdxwkubg"]
 
 [ext_resource type="Script" path="res://scripts/Credits.gd" id="1_5gar8"]
 [ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="1_7yl17"]

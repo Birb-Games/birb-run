@@ -32,5 +32,7 @@ func _ready():
 		add_child(level_button)
 
 func _on_back_pressed():
+	get_node("/root/Root/UI/UIButtonPress").play()
+	
 	var ui = $/root/Root/UI
 	ui.load_screen_from_scene(ui.main_menu)
