@@ -106,7 +106,6 @@ func update_shooting():
 		bullet_instance.position.x = position.x + get_direction() * BULLET_DIST
 		bullet_instance.direction = get_direction()
 		$/root/Root/Level/Enemies.add_child(bullet_instance)
-		$ShootAudioPlayer.play()
 	move_and_slide()
 	
 func _physics_process(delta):
