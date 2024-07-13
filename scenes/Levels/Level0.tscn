@@ -30,7 +30,7 @@ position = Vector2(1161, 104)
 position = Vector2(476, 184)
 
 [node name="DoubleJumpPickup" parent="." index="5" instance=ExtResource("4_tknsk")]
-position = Vector2(120, 173)
+position = Vector2(120, 181)
 
 [node name="Sign" parent="." index="6" instance=ExtResource("5_t2ykk")]
 position = Vector2(81, 216)

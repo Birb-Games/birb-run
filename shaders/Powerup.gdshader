@@ -26,7 +26,7 @@ void fragment() {
 	vec4 pixelColor = texture(TEXTURE, UV);
 	
 	COLOR = vec4(255.0, 215.0, 0.0, 1.0);
-	COLOR.a -= texture(noise, UV).r;
+	COLOR.a -= texture(noise, UV).r * 3.0 / 4.0;
 	
 	COLOR *= pixelColor.a;
 }
