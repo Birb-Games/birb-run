@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b08ayc4ahxsal"]
+[gd_scene load_steps=5 format=3 uid="uid://b08ayc4ahxsal"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_w35q7"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="3_5y7os"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="3_058p8"]
+[ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="4_tknsk"]
 
 [node name="Level" instance=ExtResource("1_w35q7")]
 
@@ -26,3 +27,6 @@ position = Vector2(1161, 104)
 
 [node name="Bleerb" parent="Enemies" index="2" instance=ExtResource("3_5y7os")]
 position = Vector2(476, 184)
+
+[node name="DoubleJumpPickup" parent="." index="5" instance=ExtResource("4_tknsk")]
+position = Vector2(120, 173)

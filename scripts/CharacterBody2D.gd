@@ -5,6 +5,9 @@ class_name Player
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 
+@export var double_jump_unlocked = false
+var has_second_jump = false
+
 var home: Marker2D
 
 signal just_died
@@ -47,14 +50,22 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	
+	#check for double jump recovery
+	if is_on_floor() and !has_second_jump and double_jump_unlocked:
+		has_second_jump = true
+	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-		$JumpAudioPlayer.play()
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_velocity
+			$JumpAudioPlayer.play()
+		elif has_second_jump:
+			velocity.y = jump_velocity
+			$JumpAudioPlayer.play()
+			has_second_jump = false;
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * speed

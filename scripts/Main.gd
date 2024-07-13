@@ -20,6 +20,7 @@ func save():
 	# to handle for this game
 	file.store_string(str(level_num) + "\n")
 	file.store_string(str(unlocked) + "\n")
+	file.store_string(("true" if player.double_jump_unlocked else "false") + "\n")
 	file.close()
 
 func load_save():
@@ -32,6 +33,8 @@ func load_save():
 	level_num = int(line)
 	line = file.get_line()
 	unlocked = int(line)
+	line = file.get_line()
+	player.double_jump_unlocked = true if line == "true" else false
 	file.close()
 
 func _ready():
@@ -74,8 +77,10 @@ func _load_level():
 		# after beating the last level the level automatically gets beaten
 		# for no apparent reason so this is a fix for that, it's a little jank
 		# but works fine
+		var ability_unlocks = [player.double_jump_unlocked]
 		player.queue_free()
 		player = load("res://scenes/Player.tscn").instantiate()
+		player.double_jump_unlocked = ability_unlocks[0]
 		$UI.load_screen_from_scene(win_screen)
 		return
 	
@@ -84,8 +89,12 @@ func _load_level():
 	instance.name = "Level"
 	call_deferred("add_child", instance)
 	
+	# Reset the player to prevent death animations etc.
+	var ability_unlocks = [player.double_jump_unlocked]
 	player.free()
 	player = load("res://scenes/Player.tscn").instantiate()
+	player.double_jump_unlocked = ability_unlocks[0]
+	
 	# Set the player's position and home
 	player.position = instance.get_node("Home").position
 	player.home = instance.get_node("Home")
