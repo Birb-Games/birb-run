@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b08ayc4ahxsal"]
+[gd_scene load_steps=6 format=3 uid="uid://b08ayc4ahxsal"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_w35q7"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="3_5y7os"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="3_058p8"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="4_tknsk"]
+[ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="5_t2ykk"]
 
 [node name="Level" instance=ExtResource("1_w35q7")]
 
@@ -30,3 +31,9 @@ position = Vector2(476, 184)
 
 [node name="DoubleJumpPickup" parent="." index="5" instance=ExtResource("4_tknsk")]
 position = Vector2(120, 173)
+
+[node name="Sign" parent="." index="6" instance=ExtResource("5_t2ykk")]
+position = Vector2(81, 216)
+text = "this is a test sign
+blah blah
+How's your day? :)"

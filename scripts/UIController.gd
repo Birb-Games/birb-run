@@ -5,8 +5,10 @@ extends CanvasLayer
 
 func clear():
 	for i in get_child_count():
-		if !(get_child(i) is AudioStreamPlayer):
-			get_child(i).queue_free()
+		if (get_child(i) is AudioStreamPlayer) or (get_child(i).name == "DialogBox"):
+			continue
+		
+		get_child(i).queue_free()
 
 func load_screen_from_scene(screen: PackedScene):
 	clear()
