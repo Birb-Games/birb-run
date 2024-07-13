@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjnrrycp34fxx"]
+
+[ext_resource type="Script" path="res://scripts/GlidePickup.gd" id="1_qr506"]
+[ext_resource type="Shader" path="res://shaders/Powerup.gdshader" id="2_h68pc"]
+[ext_resource type="Texture2D" uid="uid://b7b4lmkgw2koh" path="res://assets/textures/noise.tres" id="3_g3yjj"]
+[ext_resource type="Texture2D" uid="uid://u3gqx7f12hx" path="res://assets/sprites/doublejump_pickup.png" id="4_c0ccs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0h0sv"]
+radius = 8.8
+
+[sub_resource type="Gradient" id="Gradient_e1vjy"]
+colors = PackedColorArray(1, 0.843137, 0, 1, 1, 0.962958, 0.817508, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wcs68"]
+gradient = SubResource("Gradient_e1vjy")
+
+[sub_resource type="Curve" id="Curve_dfkm2"]
+max_value = 1.5
+_data = [Vector2(0, 1.5), 0.0, 2.05533e-07, 0, 0, Vector2(0.286667, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rjolj"]
+curve = SubResource("Curve_dfkm2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5eonx"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 12.0
+direction = Vector3(0, -1, 0)
+scale_min = 0.0
+scale_max = 2.0
+scale_over_velocity_max = 25.0
+scale_over_velocity_curve = SubResource("CurveTexture_rjolj")
+color = Color(0.945335, 0.905878, 1, 1)
+color_ramp = SubResource("GradientTexture1D_wcs68")
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.0
+turbulence_influence_min = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn15y"]
+shader = ExtResource("2_h68pc")
+shader_parameter/noise = ExtResource("3_g3yjj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiryl"]
+atlas = ExtResource("4_c0ccs")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2htel"]
+atlas = ExtResource("4_c0ccs")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4a84"]
+atlas = ExtResource("4_c0ccs")
+region = Rect2(32, 0, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vru3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiryl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2htel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4a84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2htel")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="GlidePickup" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_qr506")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0h0sv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_5eonx")
+lifetime = 2.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_rn15y")
+sprite_frames = SubResource("SpriteFrames_vru3p")
+autoplay = "default"
+frame = 3
+frame_progress = 0.407611
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

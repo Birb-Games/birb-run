@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw4ij6v0p7pxf"]
+[gd_scene load_steps=3 format=3 uid="uid://bw4ij6v0p7pxf"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_hfnir"]
+[ext_resource type="PackedScene" uid="uid://bjnrrycp34fxx" path="res://scenes/GlidePickup.tscn" id="2_mt8c4"]
 
 [node name="Level" instance=ExtResource("1_hfnir")]
 
@@ -12,3 +13,6 @@ position = Vector2(1288, 240)
 
 [node name="Home" parent="." index="3"]
 position = Vector2(45, 245)
+
+[node name="GlidePickup" parent="." index="5" instance=ExtResource("2_mt8c4")]
+position = Vector2(169, 132)
