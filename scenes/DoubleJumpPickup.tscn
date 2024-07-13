@@ -1,13 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://yd1vm0tu0rsh"]
 
-[ext_resource type="Shader" path="res://scripts/Powerup.gdshader" id="1_pwqj3"]
+[ext_resource type="Shader" path="res://shaders/Powerup.gdshader" id="1_pwqj3"]
 [ext_resource type="Script" path="res://scripts/DoubleJumpPickup.gd" id="1_v7re1"]
-[ext_resource type="Texture2D" uid="uid://u3gqx7f12hx" path="res://assets/sprites/DoubleJumpPickup.png" id="1_xdv0e"]
-[ext_resource type="Texture2D" uid="uid://b7b4lmkgw2koh" path="res://assets/PowerupNoise.tres" id="3_umpt7"]
+[ext_resource type="Texture2D" uid="uid://u3gqx7f12hx" path="res://assets/sprites/doublejump_pickup.png" id="1_xdv0e"]
+[ext_resource type="Texture2D" uid="uid://b7b4lmkgw2koh" path="res://assets/textures/noise.tres" id="3_umpt7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fepj3"]
-radius = 6.0
-height = 22.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_0h0sv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q7umo"]
 shader = ExtResource("1_pwqj3")
@@ -51,11 +49,10 @@ collision_mask = 2
 script = ExtResource("1_v7re1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_fepj3")
+shape = SubResource("CircleShape2D_0h0sv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_q7umo")
-scale = Vector2(2, 2)
 texture = ExtResource("1_xdv0e")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
