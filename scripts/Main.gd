@@ -20,7 +20,7 @@ func save():
 	# to handle for this game
 	file.store_string(str(level_num) + "\n")
 	file.store_string(str(unlocked) + "\n")
-	file.store_string(("true" if player.double_jump_unlocked else "false") + "\n")
+	file.store_string(str(player.double_jump_unlocked) + "\n")
 	file.close()
 
 func load_save():

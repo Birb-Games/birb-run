@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3y1wg25hnxnq"]
+
+[ext_resource type="Script" path="res://scripts/Sign.gd" id="1_0bj8a"]
+[ext_resource type="Texture2D" uid="uid://dqa4q5nevfrnj" path="res://assets/sprites/sign.png" id="1_3bbu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpoan"]
+size = Vector2(14, 14)
+
+[node name="Sign" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0bj8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vpoan")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3bbu8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

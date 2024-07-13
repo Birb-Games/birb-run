@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b360vkyso2uy"]
+[gd_scene load_steps=6 format=3 uid="uid://b360vkyso2uy"]
 
 [ext_resource type="Script" path="res://scripts/UIController.gd" id="1_rmmtt"]
 [ext_resource type="PackedScene" uid="uid://dxrwyx3nq6agl" path="res://scenes/UI/MainMenuScreen.tscn" id="2_5y37o"]
 [ext_resource type="PackedScene" uid="uid://eefsxgl3abjj" path="res://scenes/UI/PauseMenu.tscn" id="3_lgcqs"]
 [ext_resource type="AudioStream" uid="uid://1hkbsr0jk5nq" path="res://assets/sfx/select.wav" id="4_lt2ll"]
+[ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="5_ryxwk"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_rmmtt")
@@ -12,3 +13,13 @@ pause_screen = ExtResource("3_lgcqs")
 
 [node name="UIButtonPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_lt2ll")
+
+[node name="DialogBox" type="VBoxContainer" parent="."]
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="Label" type="Label" parent="DialogBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ryxwk")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
