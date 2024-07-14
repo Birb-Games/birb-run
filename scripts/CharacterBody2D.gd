@@ -7,6 +7,8 @@ class_name Player
 
 @export var double_jump_unlocked = false
 var has_second_jump = false
+@export var glide_unlocked = false
+const GLIDE_FALL_SPEED = 12
 
 var home: Marker2D
 
@@ -47,8 +49,10 @@ func _physics_process(delta):
 	if dead:
 		return
 	
-	# Add the gravity.
-	if not is_on_floor():
+	# Add the gravity or glide
+	if glide_unlocked and Input.is_action_pressed("jump") and velocity.y > 0:
+		velocity.y = GLIDE_FALL_SPEED
+	elif not is_on_floor():
 		velocity.y += gravity * delta
 	
 	#check for double jump recovery
