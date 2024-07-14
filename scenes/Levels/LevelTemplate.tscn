@@ -20,3 +20,7 @@ format = 2
 gizmo_extents = 14.0
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="Powerups" type="Node" parent="."]
+
+[node name="Signs" type="Node" parent="."]
