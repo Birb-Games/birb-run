@@ -22,11 +22,19 @@ uniform sampler2D noise;
     //return vec4(r, g, b, 1.0);
 //}
 
+const float NOISE_SCROLL_SPEED = 0.2;
+
 void fragment() {
 	vec4 pixelColor = texture(TEXTURE, UV);
 	
 	COLOR = vec4(255.0, 215.0, 0.0, 1.0);
-	COLOR.a -= texture(noise, UV).r * 3.0 / 4.0;
+	
+	// This only works if there are 3 distinct frames for animation and
+	// if all those three frames are on the same row in the spritesheet
+	// Kind of a hack, but it works for now
+	vec2 noise_uv = vec2(fract(UV.x * 3.0), UV.y);
+	noise_uv = fract(noise_uv + vec2(0.0, TIME * NOISE_SCROLL_SPEED));
+	COLOR.a -= texture(noise, noise_uv).r * 3.0 / 4.0;
 	
 	COLOR *= pixelColor.a;
 }

@@ -7,8 +7,9 @@ class_name Player
 
 @export var double_jump_unlocked = false
 var has_second_jump = false
-@export var glide_unlocked = false
-const GLIDE_FALL_SPEED = 12
+@export var glide_timer = 0.0
+const GLIDE_FALL_SPEED = 20.0
+const GLIDE_TIME = 5.0
 
 var home: Marker2D
 
@@ -20,12 +21,21 @@ var dead = false
 var respawn_timer = 0.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var default_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = default_gravity
 
 func _ready():
 	$DeathParticles.lifetime = RESPAWN_DELAY / 2.0
 
+func set_gravity():
+	if glide_timer > 0.0:
+		gravity = default_gravity * 0.75
+		velocity.y = min(velocity.y, GLIDE_FALL_SPEED)
+	else:
+		gravity = default_gravity
+
 func _process(delta):
+	set_gravity()
 	# update death timer
 	if respawn_timer <= 0.0 and dead:
 		dead = false
@@ -34,6 +44,11 @@ func _process(delta):
 		$CollisionShape2D.disabled = false
 	elif respawn_timer > 0.0 and dead:
 		respawn_timer -= delta
+	
+	if glide_timer < 1.0 and sin(glide_timer * 24.0) > 0.0 and glide_timer > 0.05 and velocity.y > 0.0:
+		$AnimatedSprite2D.modulate = Color.RED
+	else:
+		$AnimatedSprite2D.modulate = Color.WHITE
 
 func handle_collision():
 	for index in get_slide_collision_count():
@@ -49,10 +64,11 @@ func _physics_process(delta):
 	if dead:
 		return
 	
-	# Add the gravity or glide
-	if glide_unlocked and Input.is_action_pressed("jump") and velocity.y > 0:
-		velocity.y = GLIDE_FALL_SPEED
-	elif not is_on_floor():
+	if glide_timer > 0.0:
+		glide_timer -= delta
+	
+	# Add the gravity
+	if not is_on_floor():
 		velocity.y += gravity * delta
 	
 	#check for double jump recovery
@@ -67,7 +83,8 @@ func _physics_process(delta):
 		elif has_second_jump:
 			velocity.y = jump_velocity
 			$JumpAudioPlayer.play()
-			has_second_jump = false;
+			has_second_jump = false
+			double_jump_unlocked = false
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("move_left", "move_right")
@@ -84,6 +101,10 @@ func _physics_process(delta):
 func _on_just_died():
 	if dead:
 		return
+		
+	double_jump_unlocked = false
+	has_second_jump = false
+	glide_timer = 0.0
 	
 	$DeathParticles.emitting = true
 	$DeathAudioPlayer.play()
