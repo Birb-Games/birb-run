@@ -76,11 +76,11 @@ func _physics_process(delta):
 		has_second_jump = true
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
 			$JumpAudioPlayer.play()
-		elif has_second_jump:
+		elif has_second_jump and velocity.y > 0.0:
 			velocity.y = jump_velocity
 			$JumpAudioPlayer.play()
 			has_second_jump = false

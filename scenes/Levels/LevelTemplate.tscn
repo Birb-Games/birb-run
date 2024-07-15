@@ -1,10 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://de5q5snr326ce"]
+[gd_scene load_steps=7 format=3 uid="uid://de5q5snr326ce"]
 
+[ext_resource type="Texture2D" uid="uid://b4tvcv0lv6mpw" path="res://assets/tilemaps/tilemap.png" id="1_545am"]
 [ext_resource type="TileSet" uid="uid://sps0nu118bqw" path="res://assets/tilemaps/tilemap.tres" id="1_gtscu"]
 [ext_resource type="TileSet" uid="uid://bylmlu4fss8lf" path="res://assets/tilemaps/tiledanger.tres" id="2_y7osw"]
 [ext_resource type="PackedScene" uid="uid://ckqjrkfl5ui10" path="res://scenes/WinGate.tscn" id="3_7oqk4"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7et1l"]
+texture = ExtResource("1_545am")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0uk1x"]
+sources/0 = SubResource("TileSetAtlasSource_7et1l")
+
 [node name="Level" type="Node2D"]
+
+[node name="Background" type="TileMap" parent="."]
+editor_description = "I don't know how to disable collisions in tilemaps and I couldn't find anything on the internet and I kept breaking the tilemaps so I'm just going to create another duplicate tilemap for the background."
+tile_set = SubResource("TileSet_0uk1x")
+format = 2
+layer_0/modulate = Color(0.359069, 0.359069, 0.359069, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_gtscu")

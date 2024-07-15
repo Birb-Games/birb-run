@@ -97,9 +97,8 @@ shape = SubResource("RectangleShape2D_qsq7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tp8kh")
-animation = &"falling"
+animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.497621
 script = ExtResource("3_xfft1")
 
 [node name="DeathParticles" type="GPUParticles2D" parent="."]
