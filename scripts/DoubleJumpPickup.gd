@@ -13,7 +13,8 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Player and respawn_timer <= 0.0 and !body.dead and !body.double_jump_unlocked:
 		body.double_jump_unlocked = true
-		body.has_second_jump = true
+		body.jumps = 2
+		body.velocity.y = 0.0
 		body.get_node("PowerupAudioPlayer").play()
 		hide()
 		respawn_timer = RESPAWN_DELAY

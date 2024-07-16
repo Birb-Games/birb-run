@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7b4lmkgw2koh" path="res://assets/textures/noise.tres" id="3_umpt7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0h0sv"]
-radius = 8.8
+radius = 12.0
 
 [sub_resource type="Gradient" id="Gradient_e1vjy"]
 colors = PackedColorArray(1, 0.843137, 0, 1, 1, 0.962958, 0.817508, 1)

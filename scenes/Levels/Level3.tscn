@@ -50,7 +50,7 @@ position = Vector2(880, 178)
 position = Vector2(1160, 131)
 
 [node name="LaunchPickup3" parent="Powerups" index="2" instance=ExtResource("3_py7vb")]
-position = Vector2(1711, 194)
+position = Vector2(1716, 195)
 
 [node name="LaunchPickup4" parent="Powerups" index="3" instance=ExtResource("3_py7vb")]
 position = Vector2(2032, 117)

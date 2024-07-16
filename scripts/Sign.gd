@@ -5,7 +5,7 @@ extends Area2D
 func _on_body_entered(body):
 	if body is Player:
 		var ui = $/root/Root/UI
-		ui.get_node("DialogBox/Label").text = "\nSign: " + text
+		ui.get_node("DialogBox/Label").text = "\n" + text
 
 func _on_body_exited(body):
 	if body is Player:

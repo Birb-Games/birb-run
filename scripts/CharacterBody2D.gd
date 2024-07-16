@@ -6,7 +6,7 @@ class_name Player
 @export var jump_velocity = -400.0
 
 @export var double_jump_unlocked = false
-var has_second_jump = false
+var jumps = 1
 @export var glide_timer = 0.0
 const GLIDE_FALL_SPEED = 20.0
 const GLIDE_TIME = 5.0
@@ -72,19 +72,19 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	#check for double jump recovery
-	if is_on_floor() and !has_second_jump and double_jump_unlocked:
-		has_second_jump = true
+	if is_on_floor():
+		if double_jump_unlocked:
+			jumps = 2
+		else:
+			jumps = 1
 	
 	# Handle jump.
-	if Input.is_action_pressed("jump"):
-		if is_on_floor():
-			velocity.y = jump_velocity
-			$JumpAudioPlayer.play()
-		elif has_second_jump and velocity.y > 0.0:
-			velocity.y = jump_velocity
-			$JumpAudioPlayer.play()
-			has_second_jump = false
+	if Input.is_action_just_pressed("jump") and jumps > 0:
+		velocity.y = jump_velocity
+		$JumpAudioPlayer.play()
+		if jumps == 2:
 			double_jump_unlocked = false
+		jumps -= 1
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("move_left", "move_right")
@@ -103,7 +103,7 @@ func _on_just_died():
 		return
 		
 	double_jump_unlocked = false
-	has_second_jump = false
+	jumps = 1
 	glide_timer = 0.0
 	
 	$DeathParticles.emitting = true
