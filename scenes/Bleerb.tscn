@@ -110,7 +110,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6odvc"]
-size = Vector2(12, 16)
+size = Vector2(12, 14)
 
 [node name="Bleerb" type="CharacterBody2D"]
 collision_layer = 2
@@ -130,6 +130,7 @@ autoplay = "idle"
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_6odvc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

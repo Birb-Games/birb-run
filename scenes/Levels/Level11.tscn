@@ -57,12 +57,12 @@ fly_range = 48.0
 [node name="EvilAngel4" parent="Enemies" index="9" instance=ExtResource("4_03byw")]
 position = Vector2(184, -154)
 fly_range = 48.0
-speed = 100.0
+speed = 64.0
 
 [node name="EvilAngel5" parent="Enemies" index="10" instance=ExtResource("4_03byw")]
 position = Vector2(432.656, -192.029)
 fly_range = 48.0
-speed = 100.0
+speed = 64.0
 
 [node name="Bleerb6" parent="Enemies" index="11" instance=ExtResource("2_1wf6q")]
 position = Vector2(1143, -280)
