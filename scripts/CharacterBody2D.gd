@@ -38,6 +38,7 @@ func _process(delta):
 	set_gravity()
 	# update death timer
 	if respawn_timer <= 0.0 and dead:
+		$DeathParticles.emitting = false
 		dead = false
 		position = home.position
 		$AnimatedSprite2D.show()
