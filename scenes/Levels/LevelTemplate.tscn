@@ -61,7 +61,7 @@ sources/0 = SubResource("TileSetAtlasSource_7et1l")
 editor_description = "I don't know how to disable collisions in tilemaps and I couldn't find anything on the internet and I kept breaking the tilemaps so I'm just going to create another duplicate tilemap for the background."
 tile_set = SubResource("TileSet_0uk1x")
 format = 2
-layer_0/modulate = Color(0.359069, 0.359069, 0.359069, 1)
+layer_0/modulate = Color(0.423651, 0.423651, 0.423651, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_gtscu")

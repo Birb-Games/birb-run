@@ -15,6 +15,10 @@ func _process(_delta):
 		flip_h = false
 	
 	var player = $".."
+	var current_frame = frame
+	var progress = frame_progress
+	var current_animation = animation
+	
 	# Activate walking animation if we are moving
 	if abs(player.velocity.y) > 0.0:
 		animation = "falling"
@@ -23,3 +27,7 @@ func _process(_delta):
 	# Deactivate it if we are not moving
 	else:
 		animation = "idle"
+	
+	if animation != current_animation:
+		frame_progress = progress
+		frame = current_frame

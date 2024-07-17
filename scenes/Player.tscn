@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6b8du"]
