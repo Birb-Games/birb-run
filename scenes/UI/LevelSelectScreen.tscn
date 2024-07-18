@@ -31,7 +31,7 @@ offset_right = 940.0
 offset_bottom = 450.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-columns = 4
+columns = 8
 script = ExtResource("1_4j715")
 
 [node name="Back" type="Button" parent="."]

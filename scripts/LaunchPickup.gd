@@ -1,6 +1,7 @@
 extends Area2D
 
 const RESPAWN_DELAY = 3.0
+const BOOST = 480.0
 var respawn_timer = 0.0
 
 func _process(delta):
@@ -11,10 +12,8 @@ func _process(delta):
 		show()
 
 func _on_body_entered(body):
-	if body is Player and respawn_timer <= 0.0 and !body.dead and !body.double_jump_unlocked:
-		body.double_jump_unlocked = true
-		body.jumps = 2
-		body.velocity.y = 0.0
+	if body is Player and respawn_timer <= 0.0 and !body.dead:
+		body.velocity.y = -BOOST
 		body.get_node("PowerupAudioPlayer").play()
 		hide()
 		respawn_timer = RESPAWN_DELAY

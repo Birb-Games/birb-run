@@ -31,7 +31,7 @@ func at_edge():
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		var body = collision.get_collider()
-		if body is TileMap and body.position.y < position.y - scale.x * sprite_sz.x * 0.5:
+		if body is TileMap:
 			edge = false
 			break
 	

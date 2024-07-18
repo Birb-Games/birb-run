@@ -1,15 +1,33 @@
-#GLIDE TODO: new pickup icon (maybe of a wing), flying/gliding animation for the player when in the air and gliding 
 extends Area2D
 
-@onready var noise_texture = $AnimatedSprite2D.material.get_shader_parameter("noise").noise
+const FLY_SPEED = -120.0
+var velocity = Vector2(0.0, 0.0)
+var initial_pos: Vector2
 
-const NOISE_VERTICAL_SCROLL_SPEED = 30.0
+func _ready():
+	initial_pos = position
 
 func _process(delta):
-	noise_texture.offset.y += NOISE_VERTICAL_SCROLL_SPEED * delta
+	# Accelerate upwards
+	if velocity.y < 0.0 and position.y < initial_pos.y:
+		velocity.y += FLY_SPEED * delta
+	
+	if position.y - initial_pos.y < -500.0:
+		position = initial_pos + Vector2(0.0, 500.0)
+		velocity.y = FLY_SPEED
+	
+	# Reset position
+	if abs(position.y - initial_pos.y) < 8.0 and velocity.y != 0.0:
+		position = initial_pos
+		velocity.y = 0.0
+	
+	position += velocity * delta
 
 func _on_body_entered(body):
-	if body is Player:
-		body.glide_unlocked = true
+	if body is Player and !body.dead and body.glide_timer <= 0.0 and velocity.y == 0.0:
+		body.glide_timer = body.GLIDE_TIME
 		body.get_node("PowerupAudioPlayer").play()
-		queue_free()
+		
+		# trigger fly away animation
+		velocity.y = FLY_SPEED
+		position.y -= 16.0

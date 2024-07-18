@@ -6,4 +6,6 @@ seed = 26
 [resource]
 width = 36
 height = 36
+seamless = true
+seamless_blend_skirt = 0.25
 noise = SubResource("FastNoiseLite_uxrrc")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1ug74y737th8"]
+
+[ext_resource type="Texture2D" uid="uid://joik818s57m5" path="res://assets/sprites/evil_angel.png" id="1_26rtc"]
+[ext_resource type="Script" path="res://scripts/EvilAngel.gd" id="1_bnymn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tmgv"]
+atlas = ExtResource("1_26rtc")
+region = Rect2(0, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_argkj"]
+atlas = ExtResource("1_26rtc")
+region = Rect2(32, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucq3c"]
+atlas = ExtResource("1_26rtc")
+region = Rect2(64, 0, 32, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovi1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tmgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_argkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucq3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_argkj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c57vf"]
+radius = 5.0
+
+[node name="EvilAngel" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_bnymn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ovi1r")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c57vf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
