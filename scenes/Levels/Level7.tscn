@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://opnefa8gsngv"]
+[gd_scene load_steps=6 format=3 uid="uid://opnefa8gsngv"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_a1ptd"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="2_0gln8"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="2_3kl5e"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="4_53v6t"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="5_aymks"]
 
 [node name="Level" instance=ExtResource("1_a1ptd")]
 
@@ -76,3 +77,6 @@ Stay out!"
 [node name="Sign2" parent="Signs" index="1" instance=ExtResource("4_53v6t")]
 position = Vector2(1784, 16)
 text = "Experimental Interworld Portal #55"
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("5_aymks")]
+position = Vector2(1020, 147)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://nh71wbwh4od5"]
+[gd_scene load_steps=5 format=3 uid="uid://nh71wbwh4od5"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_h38if"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="2_7m6m8"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="2_h1vdi"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="4_xelr8"]
 
 [node name="Level" instance=ExtResource("1_h38if")]
 
@@ -59,3 +60,6 @@ text = "Blorb hunting territory ahead"
 position = Vector2(1368, 128)
 text = "Why hasn't anyone fixed
 this stupid bridge?!"
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("4_xelr8")]
+position = Vector2(945, 115)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnr7x20nifn0v"]
+[gd_scene load_steps=10 format=3 uid="uid://bnr7x20nifn0v"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_35fn1"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="2_1wf6q"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ug74y737th8" path="res://scenes/EvilAngel.tscn" id="4_03byw"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="4_tmsh1"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="7_y51dd"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="9_w5ei3"]
 
 [node name="Level" instance=ExtResource("1_35fn1")]
 
@@ -96,3 +97,12 @@ Corrupted Skyworld!"
 [node name="Sign2" parent="Signs" index="1" instance=ExtResource("2_tnd6t")]
 position = Vector2(88.0697, 727.954)
 text = "Hello"
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("9_w5ei3")]
+position = Vector2(590, -141)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("9_w5ei3")]
+position = Vector2(-351, -221)
+
+[node name="Checkpoint3" parent="Checkpoints" index="2" instance=ExtResource("9_w5ei3")]
+position = Vector2(446, -381)

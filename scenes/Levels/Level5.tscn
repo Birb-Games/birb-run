@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dopqq0ss83fgv"]
+[gd_scene load_steps=8 format=3 uid="uid://dopqq0ss83fgv"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_r25kq"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="2_7awmg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="3_4kwtt"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="4_qiyv0"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="6_no1un"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="7_f0jei"]
 
 [node name="Level" instance=ExtResource("1_r25kq")]
 
@@ -69,3 +70,6 @@ text = "How to use double jump:
 When in midair, press the jump key again
 You can only double jump once
 before you need to pick up another powerup"
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("7_f0jei")]
+position = Vector2(1437, 115)

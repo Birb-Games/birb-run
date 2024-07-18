@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://unyqm4qdmb76"]
+[gd_scene load_steps=6 format=3 uid="uid://unyqm4qdmb76"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_1vmnm"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="2_vjuw7"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="3_py7vb"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="4_4jop3"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="5_8xds1"]
 
 [node name="Level" instance=ExtResource("1_1vmnm")]
 
@@ -58,3 +59,6 @@ position = Vector2(2032, 117)
 [node name="Sign" parent="Signs" index="0" instance=ExtResource("4_4jop3")]
 position = Vector2(681, 104)
 text = "Mysterious ancient ruins ahead"
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("5_8xds1")]
+position = Vector2(933, 67)

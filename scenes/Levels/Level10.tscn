@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxgko02enmgps"]
+[gd_scene load_steps=7 format=3 uid="uid://dxgko02enmgps"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_yxw05"]
 [ext_resource type="PackedScene" uid="uid://ywhsdjwth87x" path="res://scenes/GlidePickup.tscn" id="2_5tvqi"]
 [ext_resource type="PackedScene" uid="uid://b1ug74y737th8" path="res://scenes/EvilAngel.tscn" id="2_th1iv"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="4_f1rvh"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="5_mr7d1"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="6_cdyiw"]
 
 [node name="Level" instance=ExtResource("1_yxw05")]
 
@@ -66,3 +67,9 @@ position = Vector2(312.583, -884.875)
 
 [node name="DoubleJumpPickup4" parent="Powerups" index="10" instance=ExtResource("4_f1rvh")]
 position = Vector2(144.958, -831.361)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("6_cdyiw")]
+position = Vector2(399, -253)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("6_cdyiw")]
+position = Vector2(414, -861)
