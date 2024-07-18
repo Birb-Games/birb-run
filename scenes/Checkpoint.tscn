@@ -12,6 +12,7 @@ emission_sphere_radius = 13.0
 radial_velocity_min = -40.0
 radial_velocity_max = -10.0
 gravity = Vector3(0, 0, 0)
+scale_max = 3.0
 color = Color(0.824153, 0.590676, 0.975556, 1)
 
 [node name="Checkpoint" type="Area2D"]
