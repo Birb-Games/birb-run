@@ -36,7 +36,7 @@ and start your adventure!
 (Note: Magic Portal Inc. is not
 responsible for any
 accidental disintegration or 
-you being eaten by interdimenional 
+consumption by interdimenional 
 monsters, please don't sue us)"
 
 [node name="Sign4" parent="Signs" index="3" instance=ExtResource("5_t2ykk")]
