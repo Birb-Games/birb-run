@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmwcwqrlk7h8w"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_w35q7"]
-[ext_resource type="PackedScene" uid="uid://dcdr7fyci6qu0" path="res://scenes/Checkpoint.tscn" id="3_d8oim"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="3_d8oim"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="5_t2ykk"]
 
 [node name="Level" instance=ExtResource("1_w35q7")]
@@ -45,4 +45,4 @@ text = "This is a checkpoint, you'll respawn here if die...
 which will never happen of course."
 
 [node name="Checkpoint" parent="." index="8" instance=ExtResource("3_d8oim")]
-position = Vector2(880, 98)
+position = Vector2(878, 99)
