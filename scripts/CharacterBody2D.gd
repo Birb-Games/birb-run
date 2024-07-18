@@ -20,6 +20,10 @@ const RESPAWN_DELAY = 1.0
 var dead = false
 var respawn_timer = 0.0
 
+# the player can jump just a little bit after they fall off an edge
+const COYOTE_TIME = 0.15
+var coyote_timer = COYOTE_TIME
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var default_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity = default_gravity
@@ -64,6 +68,8 @@ func _physics_process(delta):
 	# if the player is dead, do not do physics on them
 	if dead:
 		return
+		
+	coyote_timer -= delta
 	
 	if glide_timer > 0.0:
 		glide_timer -= delta
@@ -71,21 +77,21 @@ func _physics_process(delta):
 	# Add the gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		if coyote_timer < 0.0 and not double_jump_unlocked:
+			jumps = 0
 	
 	#check for double jump recovery
 	if is_on_floor():
-		if double_jump_unlocked:
-			jumps = 2
-		else:
-			jumps = 1
+		coyote_timer = COYOTE_TIME
+		jumps = max(jumps, 1)
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jumps > 0:
 		velocity.y = jump_velocity
 		$JumpAudioPlayer.play()
-		if jumps == 2:
-			double_jump_unlocked = false
 		jumps -= 1
+		if jumps == 0 and double_jump_unlocked:
+			double_jump_unlocked = false
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("move_left", "move_right")
