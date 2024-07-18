@@ -80,6 +80,12 @@ position = Vector2(69.3833, 88.1568)
 text = "Abandoned Town
 --------->"
 
+[node name="Sign7" parent="Signs" index="6" instance=ExtResource("4_66cfw")]
+visible = false
+position = Vector2(1135, 32)
+text = "It's really dangerous to stand
+on rooftops..."
+
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("5_wuwhh")]
 position = Vector2(1173, 147)
 
