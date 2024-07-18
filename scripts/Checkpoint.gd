@@ -4,15 +4,16 @@ func _ready():
 	$AnimatedSprite2D.hide()
 
 func _on_body_entered(body):
+	if $AnimatedSprite2D.visible:
+		return
+	
 	if body is Player:
-		$"../Home".position = position
-		$GPUParticles2D.process_material.radial_velocity_max = 300
-		$GPUParticles2D.process_material.radial_velocity_min = 100
-		$GPUParticles2D.process_material.lifetime_randomness = 1
-		$GPUParticles2D.lifetime = 1
-		$GPUParticles2D.amount = 100
-		$GPUParticles2D.one_shot = true
-		$GPUParticles2D.explosiveness = 1
+		var home = get_node("/root/Root/Level/Home")
+		if home:
+			home.position = position
+		$InactiveParticles.hide()
+		$ActivateParticles.show()
+		$ActivateParticles.emitting = true
 		set_deferred("monitoring", false)
 		
 		if !$AnimatedSprite2D.visible:

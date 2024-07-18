@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://com552mfwu6ui"]
+[gd_scene load_steps=7 format=3 uid="uid://com552mfwu6ui"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_coj55"]
 [ext_resource type="PackedScene" uid="uid://ywhsdjwth87x" path="res://scenes/GlidePickup.tscn" id="2_3ugox"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="2_exy3a"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="3_ykpyg"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="4_7kheq"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="6_qqo7c"]
 
 [node name="Level" instance=ExtResource("1_coj55")]
 
@@ -71,3 +72,12 @@ position = Vector2(0, -120)
 text = "Who said birbs can't fly?
 Well they can't.
 But they can glide if they have some help..."
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("6_qqo7c")]
+position = Vector2(125, -77)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("6_qqo7c")]
+position = Vector2(35, -541)
+
+[node name="Checkpoint3" parent="Checkpoints" index="2" instance=ExtResource("6_qqo7c")]
+position = Vector2(842, -909)

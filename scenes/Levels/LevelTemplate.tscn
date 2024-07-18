@@ -81,3 +81,5 @@ gizmo_extents = 14.0
 [node name="Powerups" type="Node" parent="."]
 
 [node name="Signs" type="Node" parent="."]
+
+[node name="Checkpoints" type="Node" parent="."]

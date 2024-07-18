@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blklq16071nno"]
+[gd_scene load_steps=7 format=3 uid="uid://blklq16071nno"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_hdwgc"]
 [ext_resource type="PackedScene" uid="uid://b1ug74y737th8" path="res://scenes/EvilAngel.tscn" id="2_6lbnp"]
 [ext_resource type="PackedScene" uid="uid://ywhsdjwth87x" path="res://scenes/GlidePickup.tscn" id="2_fypka"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="3_l4ays"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="4_t3hxy"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="6_b1ve2"]
 
 [node name="Level" instance=ExtResource("1_hdwgc")]
 
@@ -63,3 +64,6 @@ lava, it's actually just very hot
 molten cheese.
 
 It still kills you if you swim in it."
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("6_b1ve2")]
+position = Vector2(606, 51)

@@ -44,5 +44,5 @@ position = Vector2(824, 104)
 text = "This is a checkpoint, you'll respawn here if die...
 which will never happen of course."
 
-[node name="Checkpoint" parent="." index="8" instance=ExtResource("3_d8oim")]
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("3_d8oim")]
 position = Vector2(878, 99)

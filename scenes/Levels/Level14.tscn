@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjs2bxie82mt4"]
+[gd_scene load_steps=9 format=3 uid="uid://bjs2bxie82mt4"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_dddym"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="2_ovdjc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="5_0mq7i"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="6_iac3p"]
 [ext_resource type="PackedScene" uid="uid://ywhsdjwth87x" path="res://scenes/GlidePickup.tscn" id="7_o3llv"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="8_m3flh"]
 
 [node name="Level" instance=ExtResource("1_dddym")]
 
@@ -83,3 +84,18 @@ position = Vector2(156, 391)
 
 [node name="GlidePickup" parent="Powerups" index="4" instance=ExtResource("7_o3llv")]
 position = Vector2(211, 378)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("8_m3flh")]
+position = Vector2(270, 947)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("8_m3flh")]
+position = Vector2(400, 787)
+
+[node name="Checkpoint3" parent="Checkpoints" index="2" instance=ExtResource("8_m3flh")]
+position = Vector2(162.769, 531.152)
+
+[node name="Checkpoint4" parent="Checkpoints" index="3" instance=ExtResource("8_m3flh")]
+position = Vector2(368, 419)
+
+[node name="Checkpoint5" parent="Checkpoints" index="4" instance=ExtResource("8_m3flh")]
+position = Vector2(102, 403)

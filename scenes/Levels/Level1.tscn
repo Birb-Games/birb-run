@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3elju4q6m5ql"]
+[gd_scene load_steps=4 format=3 uid="uid://d3elju4q6m5ql"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_tbl20"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="2_oct5d"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="3_qvem1"]
 
 [node name="Level" instance=ExtResource("1_tbl20")]
 
@@ -41,3 +42,6 @@ text = "You made it to Spiketopia's
 local portal!
 
 Hopefully the spikes didn't impale you too much..."
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("3_qvem1")]
+position = Vector2(799, 147)

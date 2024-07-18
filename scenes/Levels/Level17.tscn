@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1bs4o0pu3d02"]
+[gd_scene load_steps=10 format=3 uid="uid://d1bs4o0pu3d02"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_siyib"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="2_g34nx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ug74y737th8" path="res://scenes/EvilAngel.tscn" id="3_bgve2"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="4_2c3ed"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="5_lbc0g"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="9_ljkgx"]
 
 [node name="Level" instance=ExtResource("1_siyib")]
 
@@ -108,3 +109,15 @@ text = "Enter the portal to determine if you are worthy
 of the Temple's Power
 
 No turning back now...."
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("9_ljkgx")]
+position = Vector2(733, 99)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("9_ljkgx")]
+position = Vector2(1648, 51)
+
+[node name="Checkpoint3" parent="Checkpoints" index="2" instance=ExtResource("9_ljkgx")]
+position = Vector2(2065, 195)
+
+[node name="Checkpoint4" parent="Checkpoints" index="3" instance=ExtResource("9_ljkgx")]
+position = Vector2(2256, 99)

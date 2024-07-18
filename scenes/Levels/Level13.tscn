@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7dbemn2qw5gi"]
+[gd_scene load_steps=9 format=3 uid="uid://7dbemn2qw5gi"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_x503t"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="2_bdaio"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ug74y737th8" path="res://scenes/EvilAngel.tscn" id="4_sxp1t"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="6_flexl"]
 [ext_resource type="PackedScene" uid="uid://ywhsdjwth87x" path="res://scenes/GlidePickup.tscn" id="7_vh5yc"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="8_2vko6"]
 
 [node name="Level" instance=ExtResource("1_x503t")]
 
@@ -55,3 +56,9 @@ position = Vector2(297, 142)
 
 [node name="GlidePickup" parent="Powerups" index="3" instance=ExtResource("7_vh5yc")]
 position = Vector2(397, 81)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("8_2vko6")]
+position = Vector2(1201, 371)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("8_2vko6")]
+position = Vector2(907, 163)

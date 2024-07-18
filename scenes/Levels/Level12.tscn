@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvttq7dtrau1d"]
+[gd_scene load_steps=9 format=3 uid="uid://cvttq7dtrau1d"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_6hq4r"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="2_wur8d"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="4_5bn78"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="5_flh6n"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="6_fsxah"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="8_fv8sy"]
 
 [node name="Level" instance=ExtResource("1_6hq4r")]
 
@@ -59,3 +60,6 @@ position = Vector2(1393, 209)
 [node name="Sign" parent="Signs" index="0" instance=ExtResource("6_fsxah")]
 position = Vector2(136, 168)
 text = "Welcome to Caveworld!"
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("8_fv8sy")]
+position = Vector2(825, 211)

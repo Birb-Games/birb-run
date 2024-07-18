@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="2_wmhsf"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="3_du3nk"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="5_rjcaf"]
-[ext_resource type="PackedScene" uid="uid://dcdr7fyci6qu0" path="res://scenes/Checkpoint.tscn" id="6_nh3id"]
+[ext_resource type="PackedScene" uid="uid://c6gohep22uc78" path="res://scenes/Checkpoint.tscn" id="6_nh3id"]
 
 [node name="Level" instance=ExtResource("1_ipqhn")]
 
@@ -96,5 +96,8 @@ position = Vector2(3026, 107)
 [node name="DoubleJumpPickup9" parent="Powerups" index="12" instance=ExtResource("2_wmhsf")]
 position = Vector2(3248, 145)
 
-[node name="Checkpoint" parent="." index="8" instance=ExtResource("6_nh3id")]
-position = Vector2(983, 164)
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("6_nh3id")]
+position = Vector2(985, 163)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("6_nh3id")]
+position = Vector2(2316, 131)

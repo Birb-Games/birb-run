@@ -13,7 +13,7 @@ var initial_pos: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initial_pos = position
-	$AnimatedSprite2D.speed_scale = speed / DEFAULT_SPEED
+	$AnimatedSprite2D.speed_scale = max(speed / DEFAULT_SPEED, 1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

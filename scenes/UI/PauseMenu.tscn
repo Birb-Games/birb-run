@@ -58,6 +58,13 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_e1xqt")
+text = "NOTE: Quitting to menu will
+reset checkpoints"
+horizontal_alignment = 1
+
 [node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
