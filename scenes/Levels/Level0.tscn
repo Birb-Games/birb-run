@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmwcwqrlk7h8w"]
+[gd_scene load_steps=4 format=3 uid="uid://bmwcwqrlk7h8w"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_w35q7"]
+[ext_resource type="PackedScene" uid="uid://dcdr7fyci6qu0" path="res://scenes/Checkpoint.tscn" id="3_d8oim"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="5_t2ykk"]
 
 [node name="Level" instance=ExtResource("1_w35q7")]
@@ -35,5 +36,13 @@ and start your adventure!
 (Note: Magic Portal Inc. is not
 responsible for any
 accidental disintegration or 
-you being eaten by interdimenional 
+consumption by interdimenional 
 monsters, please don't sue us)"
+
+[node name="Sign4" parent="Signs" index="3" instance=ExtResource("5_t2ykk")]
+position = Vector2(824, 104)
+text = "This is a checkpoint, you'll respawn here if die...
+which will never happen of course."
+
+[node name="Checkpoint" parent="." index="8" instance=ExtResource("3_d8oim")]
+position = Vector2(880, 98)

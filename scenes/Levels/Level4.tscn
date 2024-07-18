@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://llh8gb5lpb5k"]
+[gd_scene load_steps=6 format=3 uid="uid://llh8gb5lpb5k"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_584xp"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="2_04l1w"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="2_8ish7"]
 [ext_resource type="PackedScene" uid="uid://d3y1wg25hnxnq" path="res://scenes/Sign.tscn" id="4_66cfw"]
+[ext_resource type="PackedScene" uid="uid://dcdr7fyci6qu0" path="res://scenes/Checkpoint.tscn" id="5_wuwhh"]
 
 [node name="Level" instance=ExtResource("1_584xp")]
 
@@ -78,3 +79,6 @@ DO NOT ENTER"
 position = Vector2(69.3833, 88.1568)
 text = "Abandoned Town
 --------->"
+
+[node name="Checkpoint" parent="." index="8" instance=ExtResource("5_wuwhh")]
+position = Vector2(1303, 164)

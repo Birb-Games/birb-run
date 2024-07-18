@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck8t4yoa65atr"]
+[gd_scene load_steps=7 format=3 uid="uid://ck8t4yoa65atr"]
 
 [ext_resource type="PackedScene" uid="uid://de5q5snr326ce" path="res://scenes/Levels/LevelTemplate.tscn" id="1_ipqhn"]
 [ext_resource type="PackedScene" uid="uid://db4avnte87i14" path="res://scenes/Bleerb.tscn" id="2_uoxq3"]
 [ext_resource type="PackedScene" uid="uid://yd1vm0tu0rsh" path="res://scenes/DoubleJumpPickup.tscn" id="2_wmhsf"]
 [ext_resource type="PackedScene" uid="uid://cuf161br1wt07" path="res://scenes/Blorb.tscn" id="3_du3nk"]
 [ext_resource type="PackedScene" uid="uid://1d16f1f635i" path="res://scenes/LaunchPickup.tscn" id="5_rjcaf"]
+[ext_resource type="PackedScene" uid="uid://dcdr7fyci6qu0" path="res://scenes/Checkpoint.tscn" id="6_nh3id"]
 
 [node name="Level" instance=ExtResource("1_ipqhn")]
 
@@ -94,3 +95,6 @@ position = Vector2(3026, 107)
 
 [node name="DoubleJumpPickup9" parent="Powerups" index="12" instance=ExtResource("2_wmhsf")]
 position = Vector2(3248, 145)
+
+[node name="Checkpoint" parent="." index="8" instance=ExtResource("6_nh3id")]
+position = Vector2(983, 164)

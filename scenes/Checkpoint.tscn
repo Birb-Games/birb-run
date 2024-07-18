@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcdr7fyci6qu0"]
+
+[ext_resource type="Script" path="res://scripts/Checkpoint.gd" id="1_fciad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qy32d"]
+radius = 12.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gil4"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 13.0
+radial_velocity_min = -40.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+color = Color(0.824153, 0.590676, 0.975556, 1)
+
+[node name="Checkpoint" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_fciad")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qy32d")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_6gil4")
+lifetime = 0.25
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
