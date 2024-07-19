@@ -6,6 +6,9 @@ extends Control
 @export var confirm_delete_screen: PackedScene
 
 func _ready():
+	if OS.get_name() == "Web":
+		$VBoxContainer/Quit.hide()
+	
 	var root = $/root/Root
 	if root.level_num == 0:
 		$VBoxContainer/Continue.text = "Start"
